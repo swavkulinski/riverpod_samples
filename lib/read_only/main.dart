@@ -46,6 +46,7 @@ class _Text extends ConsumerWidget {
   Widget build(context, ref) {
     final a = ref(titleProvider);
     return Text(
+  
       'hashCode ${a.hashCode} ${a.a}',
     );
   }
