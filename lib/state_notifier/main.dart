@@ -43,19 +43,23 @@ class MyHomePage extends ConsumerWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(1.0),
-              child: FloatingActionButton(child: Text('+a'), onPressed: controller.addA),
+              child: FloatingActionButton(
+                  child: Text('+a'), onPressed: controller.addA),
             ),
             Padding(
               padding: const EdgeInsets.all(1.0),
-              child: FloatingActionButton(child: Text('+b'), onPressed: controller.addB),
+              child: FloatingActionButton(
+                  child: Text('+b'), onPressed: controller.addB),
             ),
             Padding(
               padding: const EdgeInsets.all(1.0),
-              child: FloatingActionButton(child: Text('-a'), onPressed: controller.removeA),
+              child: FloatingActionButton(
+                  child: Text('-a'), onPressed: controller.removeA),
             ),
             Padding(
               padding: const EdgeInsets.all(1.0),
-              child: FloatingActionButton(child: Text('-b'), onPressed: controller.removeB),
+              child: FloatingActionButton(
+                  child: Text('-b'), onPressed: controller.removeB),
             ),
           ],
         ));
@@ -70,20 +74,17 @@ class _Text extends ConsumerWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          'provider hashCode ${state.hashCode}',
+          'state hashCode ${state.hashCode}',
         ),
         Divider(),
         Text(
-          'state.a ${state.a}',
+          'state.a : ${state.a}',
         ),
         Divider(),
         Text(
-          'state.b ${state.b}',
+          'state.b : ${state.b}',
         ),
         Divider(),
-        Text(
-          '${state.hashCode}',
-        ),
       ],
     );
   }
