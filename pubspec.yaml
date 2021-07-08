@@ -10,6 +10,8 @@ dependencies:
   riverpod: ^0.14.0
   flutter_riverpod: ^0.14.0
   cupertino_icons: ^1.0.2
+  network: 
+    path: ../../universal-app-android/utility/network
 dev_dependencies:
   flutter_test:
     sdk: flutter
