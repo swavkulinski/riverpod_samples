@@ -25,10 +25,7 @@ class MyHomePage extends ConsumerWidget {
   }) : super(key: key);
   @override
   Widget build(context, ref) {
-    final addA = ref(addAProvider);
-    final addB = ref(addBProvider);
-    final removeA = ref(removeAProvider);
-    final removeB = ref(removeBProvider);
+    final controller = ref(stateControllerProvider);
     return Scaffold(
         appBar: AppBar(
           title: Text('Lab'),
@@ -46,19 +43,19 @@ class MyHomePage extends ConsumerWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(1.0),
-              child: FloatingActionButton(child: Text('+a'), onPressed: addA),
+              child: FloatingActionButton(child: Text('+a'), onPressed: controller.addA),
             ),
             Padding(
               padding: const EdgeInsets.all(1.0),
-              child: FloatingActionButton(child: Text('+b'), onPressed: addB),
+              child: FloatingActionButton(child: Text('+b'), onPressed: controller.addB),
             ),
             Padding(
               padding: const EdgeInsets.all(1.0),
-              child: FloatingActionButton(child: Text('-a'), onPressed: removeA),
+              child: FloatingActionButton(child: Text('-a'), onPressed: controller.removeA),
             ),
             Padding(
               padding: const EdgeInsets.all(1.0),
-              child: FloatingActionButton(child: Text('-b'), onPressed: removeB),
+              child: FloatingActionButton(child: Text('-b'), onPressed: controller.removeB),
             ),
           ],
         ));
@@ -68,20 +65,24 @@ class MyHomePage extends ConsumerWidget {
 class _Text extends ConsumerWidget {
   @override
   Widget build(context, ref) {
-    final a = ref(stateProvider);
+    final state = ref(stateProvider);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          'provider hashCode ${a.hashCode}',
+          'provider hashCode ${state.hashCode}',
         ),
         Divider(),
         Text(
-          'a.a ${a.state.a}',
+          'state.a ${state.a}',
         ),
         Divider(),
         Text(
-          '${a.hashCode}',
+          'state.b ${state.b}',
+        ),
+        Divider(),
+        Text(
+          '${state.hashCode}',
         ),
       ],
     );

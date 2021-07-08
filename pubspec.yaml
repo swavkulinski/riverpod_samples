@@ -9,11 +9,12 @@ dependencies:
     sdk: flutter
   riverpod: ^0.14.0
   flutter_riverpod: ^0.14.0
+  freezed_annotation: ^0.14.2
   cupertino_icons: ^1.0.2
-  network: 
-    path: ../../universal-app-android/utility/network
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  freezed: ^0.14.2
+  build_runner: ^2.0.5
 flutter:
  uses-material-design: true
