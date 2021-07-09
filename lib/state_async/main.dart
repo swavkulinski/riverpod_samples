@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_testbed/state_async/view_model.dart';
 import 'main.provider.dart';
 
 void main() {
@@ -25,52 +26,29 @@ class MyHomePage extends ConsumerWidget {
   }) : super(key: key);
   @override
   Widget build(context, ref) {
-    final controller = ref(stateControllerProvider);
+    final viewModel = ref(viewStateProvider);
     return Scaffold(
         appBar: AppBar(
           title: Text('Lab'),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              _Text(),
-            ],
-          ),
-        ),
+        body: viewModel.state.when(
+            empty: () => Text('Empty'),
+            loading: () => CircularProgressIndicator(),
+            error: () => Text('Error'),
+            loaded: (value) => Text(value)),
         floatingActionButton: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Padding(
               padding: const EdgeInsets.all(1.0),
               child: FloatingActionButton(
-                  child: Text('?'), onPressed: controller.loadAppState),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: FloatingActionButton(
-                  child: Text('+a'), onPressed: controller.addA),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: FloatingActionButton(
-                  child: Text('+b'), onPressed: controller.addB),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: FloatingActionButton(
-                  child: Text('-a'), onPressed: controller.removeA),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: FloatingActionButton(
-                  child: Text('-b'), onPressed: controller.removeB),
+                  child: Text('?'), onPressed: null),
             ),
           ],
         ));
   }
 }
-
+/*
 class _Text extends ConsumerWidget {
   @override
   Widget build(context, ref) {
@@ -83,14 +61,11 @@ class _Text extends ConsumerWidget {
         ),
         Divider(),
         Text(
-          'state.a : ${state.a}',
-        ),
-        Divider(),
-        Text(
-          'state.b : ${state.b}',
+          'state.value : ${state.response.hashCode}',
         ),
         Divider(),
       ],
     );
   }
 }
+*/

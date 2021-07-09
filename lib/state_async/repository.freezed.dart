@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'state.dart';
+part of 'repository.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -16,10 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AppStateTearOff {
   const _$AppStateTearOff();
 
-  _AppState call({required String a, required String b}) {
+  _AppState call({required Response response}) {
     return _AppState(
-      a: a,
-      b: b,
+      response: response,
     );
   }
 }
@@ -29,8 +28,7 @@ const $AppState = _$AppStateTearOff();
 
 /// @nodoc
 mixin _$AppState {
-  String get a => throw _privateConstructorUsedError;
-  String get b => throw _privateConstructorUsedError;
+  Response get response => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -41,7 +39,9 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
-  $Res call({String a, String b});
+  $Res call({Response response});
+
+  $ResponseCopyWith<$Res> get response;
 }
 
 /// @nodoc
@@ -54,19 +54,21 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? a = freezed,
-    Object? b = freezed,
+    Object? response = freezed,
   }) {
     return _then(_value.copyWith(
-      a: a == freezed
-          ? _value.a
-          : a // ignore: cast_nullable_to_non_nullable
-              as String,
-      b: b == freezed
-          ? _value.b
-          : b // ignore: cast_nullable_to_non_nullable
-              as String,
+      response: response == freezed
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as Response,
     ));
+  }
+
+  @override
+  $ResponseCopyWith<$Res> get response {
+    return $ResponseCopyWith<$Res>(_value.response, (value) {
+      return _then(_value.copyWith(response: value));
+    });
   }
 }
 
@@ -75,7 +77,10 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) =
       __$AppStateCopyWithImpl<$Res>;
   @override
-  $Res call({String a, String b});
+  $Res call({Response response});
+
+  @override
+  $ResponseCopyWith<$Res> get response;
 }
 
 /// @nodoc
@@ -89,18 +94,13 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? a = freezed,
-    Object? b = freezed,
+    Object? response = freezed,
   }) {
     return _then(_AppState(
-      a: a == freezed
-          ? _value.a
-          : a // ignore: cast_nullable_to_non_nullable
-              as String,
-      b: b == freezed
-          ? _value.b
-          : b // ignore: cast_nullable_to_non_nullable
-              as String,
+      response: response == freezed
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as Response,
     ));
   }
 }
@@ -108,33 +108,28 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppState implements _AppState {
-  _$_AppState({required this.a, required this.b});
+  _$_AppState({required this.response});
 
   @override
-  final String a;
-  @override
-  final String b;
+  final Response response;
 
   @override
   String toString() {
-    return 'AppState(a: $a, b: $b)';
+    return 'AppState(response: $response)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _AppState &&
-            (identical(other.a, a) ||
-                const DeepCollectionEquality().equals(other.a, a)) &&
-            (identical(other.b, b) ||
-                const DeepCollectionEquality().equals(other.b, b)));
+            (identical(other.response, response) ||
+                const DeepCollectionEquality()
+                    .equals(other.response, response)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(a) ^
-      const DeepCollectionEquality().hash(b);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(response);
 
   @JsonKey(ignore: true)
   @override
@@ -143,12 +138,10 @@ class _$_AppState implements _AppState {
 }
 
 abstract class _AppState implements AppState {
-  factory _AppState({required String a, required String b}) = _$_AppState;
+  factory _AppState({required Response response}) = _$_AppState;
 
   @override
-  String get a => throw _privateConstructorUsedError;
-  @override
-  String get b => throw _privateConstructorUsedError;
+  Response get response => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AppStateCopyWith<_AppState> get copyWith =>
@@ -159,6 +152,10 @@ abstract class _AppState implements AppState {
 class _$ResponseTearOff {
   const _$ResponseTearOff();
 
+  Undefined undefined() {
+    return const Undefined();
+  }
+
   Unauthorized unauthorised() {
     return const Unauthorized();
   }
@@ -167,9 +164,9 @@ class _$ResponseTearOff {
     return const BadRequest();
   }
 
-  AppStateResponse appState(AppState appState) {
+  AppStateResponse appState(String value) {
     return AppStateResponse(
-      appState,
+      value,
     );
   }
 }
@@ -181,21 +178,24 @@ const $Response = _$ResponseTearOff();
 mixin _$Response {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() undefined,
     required TResult Function() unauthorised,
     required TResult Function() badRequest,
-    required TResult Function(AppState appState) appState,
+    required TResult Function(String value) appState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? undefined,
     TResult Function()? unauthorised,
     TResult Function()? badRequest,
-    TResult Function(AppState appState)? appState,
+    TResult Function(String value)? appState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Undefined value) undefined,
     required TResult Function(Unauthorized value) unauthorised,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(AppStateResponse value) appState,
@@ -203,6 +203,7 @@ mixin _$Response {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Undefined value)? undefined,
     TResult Function(Unauthorized value)? unauthorised,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(AppStateResponse value)? appState,
@@ -224,6 +225,97 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
   final Response _value;
   // ignore: unused_field
   final $Res Function(Response) _then;
+}
+
+/// @nodoc
+abstract class $UndefinedCopyWith<$Res> {
+  factory $UndefinedCopyWith(Undefined value, $Res Function(Undefined) then) =
+      _$UndefinedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UndefinedCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
+    implements $UndefinedCopyWith<$Res> {
+  _$UndefinedCopyWithImpl(Undefined _value, $Res Function(Undefined) _then)
+      : super(_value, (v) => _then(v as Undefined));
+
+  @override
+  Undefined get _value => super._value as Undefined;
+}
+
+/// @nodoc
+
+class _$Undefined implements Undefined {
+  const _$Undefined();
+
+  @override
+  String toString() {
+    return 'Response.undefined()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is Undefined);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() undefined,
+    required TResult Function() unauthorised,
+    required TResult Function() badRequest,
+    required TResult Function(String value) appState,
+  }) {
+    return undefined();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? undefined,
+    TResult Function()? unauthorised,
+    TResult Function()? badRequest,
+    TResult Function(String value)? appState,
+    required TResult orElse(),
+  }) {
+    if (undefined != null) {
+      return undefined();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Undefined value) undefined,
+    required TResult Function(Unauthorized value) unauthorised,
+    required TResult Function(BadRequest value) badRequest,
+    required TResult Function(AppStateResponse value) appState,
+  }) {
+    return undefined(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Undefined value)? undefined,
+    TResult Function(Unauthorized value)? unauthorised,
+    TResult Function(BadRequest value)? badRequest,
+    TResult Function(AppStateResponse value)? appState,
+    required TResult orElse(),
+  }) {
+    if (undefined != null) {
+      return undefined(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Undefined implements Response {
+  const factory Undefined() = _$Undefined;
 }
 
 /// @nodoc
@@ -265,9 +357,10 @@ class _$Unauthorized implements Unauthorized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() undefined,
     required TResult Function() unauthorised,
     required TResult Function() badRequest,
-    required TResult Function(AppState appState) appState,
+    required TResult Function(String value) appState,
   }) {
     return unauthorised();
   }
@@ -275,9 +368,10 @@ class _$Unauthorized implements Unauthorized {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? undefined,
     TResult Function()? unauthorised,
     TResult Function()? badRequest,
-    TResult Function(AppState appState)? appState,
+    TResult Function(String value)? appState,
     required TResult orElse(),
   }) {
     if (unauthorised != null) {
@@ -289,6 +383,7 @@ class _$Unauthorized implements Unauthorized {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Undefined value) undefined,
     required TResult Function(Unauthorized value) unauthorised,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(AppStateResponse value) appState,
@@ -299,6 +394,7 @@ class _$Unauthorized implements Unauthorized {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Undefined value)? undefined,
     TResult Function(Unauthorized value)? unauthorised,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(AppStateResponse value)? appState,
@@ -353,9 +449,10 @@ class _$BadRequest implements BadRequest {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() undefined,
     required TResult Function() unauthorised,
     required TResult Function() badRequest,
-    required TResult Function(AppState appState) appState,
+    required TResult Function(String value) appState,
   }) {
     return badRequest();
   }
@@ -363,9 +460,10 @@ class _$BadRequest implements BadRequest {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? undefined,
     TResult Function()? unauthorised,
     TResult Function()? badRequest,
-    TResult Function(AppState appState)? appState,
+    TResult Function(String value)? appState,
     required TResult orElse(),
   }) {
     if (badRequest != null) {
@@ -377,6 +475,7 @@ class _$BadRequest implements BadRequest {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Undefined value) undefined,
     required TResult Function(Unauthorized value) unauthorised,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(AppStateResponse value) appState,
@@ -387,6 +486,7 @@ class _$BadRequest implements BadRequest {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Undefined value)? undefined,
     TResult Function(Unauthorized value)? unauthorised,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(AppStateResponse value)? appState,
@@ -408,9 +508,7 @@ abstract class $AppStateResponseCopyWith<$Res> {
   factory $AppStateResponseCopyWith(
           AppStateResponse value, $Res Function(AppStateResponse) then) =
       _$AppStateResponseCopyWithImpl<$Res>;
-  $Res call({AppState appState});
-
-  $AppStateCopyWith<$Res> get appState;
+  $Res call({String value});
 }
 
 /// @nodoc
@@ -425,49 +523,41 @@ class _$AppStateResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? appState = freezed,
+    Object? value = freezed,
   }) {
     return _then(AppStateResponse(
-      appState == freezed
-          ? _value.appState
-          : appState // ignore: cast_nullable_to_non_nullable
-              as AppState,
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
-  }
-
-  @override
-  $AppStateCopyWith<$Res> get appState {
-    return $AppStateCopyWith<$Res>(_value.appState, (value) {
-      return _then(_value.copyWith(appState: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$AppStateResponse implements AppStateResponse {
-  const _$AppStateResponse(this.appState);
+  const _$AppStateResponse(this.value);
 
   @override
-  final AppState appState;
+  final String value;
 
   @override
   String toString() {
-    return 'Response.appState(appState: $appState)';
+    return 'Response.appState(value: $value)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is AppStateResponse &&
-            (identical(other.appState, appState) ||
-                const DeepCollectionEquality()
-                    .equals(other.appState, appState)));
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(appState);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
 
   @JsonKey(ignore: true)
   @override
@@ -477,23 +567,25 @@ class _$AppStateResponse implements AppStateResponse {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() undefined,
     required TResult Function() unauthorised,
     required TResult Function() badRequest,
-    required TResult Function(AppState appState) appState,
+    required TResult Function(String value) appState,
   }) {
-    return appState(this.appState);
+    return appState(value);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? undefined,
     TResult Function()? unauthorised,
     TResult Function()? badRequest,
-    TResult Function(AppState appState)? appState,
+    TResult Function(String value)? appState,
     required TResult orElse(),
   }) {
     if (appState != null) {
-      return appState(this.appState);
+      return appState(value);
     }
     return orElse();
   }
@@ -501,6 +593,7 @@ class _$AppStateResponse implements AppStateResponse {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Undefined value) undefined,
     required TResult Function(Unauthorized value) unauthorised,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(AppStateResponse value) appState,
@@ -511,6 +604,7 @@ class _$AppStateResponse implements AppStateResponse {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Undefined value)? undefined,
     TResult Function(Unauthorized value)? unauthorised,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(AppStateResponse value)? appState,
@@ -524,9 +618,9 @@ class _$AppStateResponse implements AppStateResponse {
 }
 
 abstract class AppStateResponse implements Response {
-  const factory AppStateResponse(AppState appState) = _$AppStateResponse;
+  const factory AppStateResponse(String value) = _$AppStateResponse;
 
-  AppState get appState => throw _privateConstructorUsedError;
+  String get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AppStateResponseCopyWith<AppStateResponse> get copyWith =>
       throw _privateConstructorUsedError;
