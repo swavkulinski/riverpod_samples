@@ -26,7 +26,7 @@ class MyHomePage extends ConsumerWidget {
   @override
   Widget build(context, ref) {
     final viewState = ref(viewModelNotifierProvider);
-    final bloc = ref(blocProvider);
+    final viewNotifier = ref(viewModelNotifierProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lab'),
@@ -37,7 +37,7 @@ class MyHomePage extends ConsumerWidget {
           error: () => const _Text('Error'),
           loaded: (value) => _Text(value)),
       floatingActionButton: FloatingActionButton(
-          child: const Text('?'), onPressed: bloc.loadAppData),
+          child: const Text('?'), onPressed: viewNotifier.loadAppStateUseCase),
     );
   }
 }
