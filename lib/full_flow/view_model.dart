@@ -1,20 +1,13 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod/riverpod.dart';
-
-part 'view_model.freezed.dart';
-
-@freezed
-class ViewState with _$ViewState {
-  const factory ViewState.empty() = Empty;
-  const factory ViewState.loading() = Loading;
-  const factory ViewState.error() = Error;
-  const factory ViewState.loaded(String value) = LoadedValue;
-}
+import 'view_state.dart';
 
 class ViewModel extends StateNotifier<ViewState> {
   ViewModel() : super(Empty());
 
-  set viewState(ViewState viewState) => state = viewState;
+  void empty() => state = Empty();
+  void loading() => state = Loading();
+  void error() => state = Error();
+  void loaded(String value) => state = LoadedValue(value);
 
   ViewState get viewState => state;
 }

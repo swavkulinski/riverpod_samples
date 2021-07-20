@@ -28,28 +28,22 @@ class MyHomePage extends ConsumerWidget {
     final viewState = ref(viewModelNotifierProvider);
     final bloc = ref(blocProvider);
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Lab'),
-        ),
-        body: viewState.when(
-            empty: () => _Text('Empty'),
-            loading: () => _Loading(),
-            error: () => _Text('Error'),
-            loaded: (value) => _Text(value)),
-        floatingActionButton: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: FloatingActionButton(
-                  child: Text('?'), onPressed: bloc.loadAppData),
-            ),
-          ],
-        ));
+      appBar: AppBar(
+        title: const Text('Lab'),
+      ),
+      body: viewState.when(
+          empty: () => const _Text('Empty'),
+          loading: () => const _Loading(),
+          error: () => const _Text('Error'),
+          loaded: (value) => _Text(value)),
+      floatingActionButton: FloatingActionButton(
+          child: const Text('?'), onPressed: bloc.loadAppData),
+    );
   }
 }
 
 class _Loading extends StatelessWidget {
+  const _Loading();
   @override
   Widget build(BuildContext context) => Center(
         child: CircularProgressIndicator(),
@@ -58,7 +52,7 @@ class _Loading extends StatelessWidget {
 
 class _Text extends StatelessWidget {
   final String text;
-  _Text(this.text);
+  const _Text(this.text);
   @override
   Widget build(context) {
     return Center(

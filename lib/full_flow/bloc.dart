@@ -10,13 +10,10 @@ class Bloc {
   Bloc(this.loadAppData);
 }
 
-class LoadAppStateUseCase {
-  final AppStateRepository repository;
-  final ViewModel viewModel;
-  LoadAppStateUseCase(this.repository, this.viewModel);
 
-  void execute() {
-    viewModel.viewState = Loading();
+void loadAppStateUseCase(AppStateRepository repository,
+  ViewModel viewModel) {
+    viewModel.loading();
 
     Future.delayed(Duration(seconds: 2), () {
       final rnd = Random().nextInt(5);
@@ -30,14 +27,14 @@ class LoadAppStateUseCase {
       return AppStateResponse(Random().nextInt(32).toString());
     }).then((value) {
       value.map(
-          undefined: (_) => viewModel.viewState = Empty(),
-          unauthorised: (_) => viewModel.viewState = Error(),
-          badRequest: (_) => viewModel.viewState = Error(),
+          undefined: (_) => viewModel.empty(),
+          unauthorised: (_) => viewModel.error(),
+          badRequest: (_) => viewModel.error(),
           appState: (appState) {
         repository.appState = repository.appState.copyWith(response: appState);
-        viewModel.viewState = LoadedValue(appState.value);
+        viewModel.loaded(appState.value);
           });
 
     });
   }
-}
+

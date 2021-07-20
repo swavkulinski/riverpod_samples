@@ -1,20 +1,24 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app_state.dart';
 import 'bloc.dart';
 import 'view_model.dart';
 
-final viewModelProvider = Provider((_) => ViewModel());
+final _viewModelProvider = Provider((_) => ViewModel());
 
-final viewModelNotifierProvider =
-    StateNotifierProvider((ref) => ref.watch(viewModelProvider));
-
-final stateControllerProvider =
+final _appStateRepositoryProvider =
     Provider<AppStateRepository>((ref) => AppStateRepository());
 
-final loadUseCaseProvider = Provider<LoadAppStateUseCase>((ref) =>
-    LoadAppStateUseCase(
-        ref.watch(stateControllerProvider), ref.watch(viewModelProvider)));
+final _loadUseCaseProvider = Provider<VoidCallback>(
+  (ref) => () => loadAppStateUseCase(
+        ref.watch(_appStateRepositoryProvider),
+        ref.watch(_viewModelProvider),
+      ),
+);
 
 final blocProvider =
-    Provider<Bloc>((ref) => Bloc(ref.watch(loadUseCaseProvider).execute));
+    Provider<Bloc>((ref) => Bloc(ref.watch(_loadUseCaseProvider)));
+
+final viewModelNotifierProvider =
+    StateNotifierProvider((ref) => ref.watch(_viewModelProvider));
