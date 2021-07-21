@@ -37,7 +37,7 @@ class MyHomePage extends ConsumerWidget {
           error: () => const _Text('Error'),
           loaded: (value) => _Text(value)),
       floatingActionButton: FloatingActionButton(
-          child: const Text('?'), onPressed: viewNotifier.loadAppStateUseCase),
+          child: const Text('?'), onPressed: viewNotifier.loadAppState),
     );
   }
 }

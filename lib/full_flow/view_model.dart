@@ -1,28 +1,16 @@
-import 'dart:math';
-
 import 'package:riverpod/riverpod.dart';
-import 'app_state.dart';
 import 'main.provider.dart';
 import 'view_state.dart';
 
 class ViewModel extends StateNotifier<ViewState> {
-  ProviderReference ref;
+  final ProviderReference ref;
   ViewModel(this.ref) : super(Empty());
 
-  Future<void> loadAppStateUseCase() async {
+  /// Invokes use case and maps the result to ViewState
+  Future<void> loadAppState() async {
     state = Loading();
 
-    final result = await Future.delayed(Duration(seconds: 2), () {
-      final rnd = Random().nextInt(5);
-      switch (rnd) {
-        case 0:
-          return Unauthorized();
-        case 1:
-          return BadRequest();
-      }
-
-      return AppStateResponse(Random().nextInt(32).toString());
-    });
+    final result = await ref.watch(loadAppStateUseCase)();
     final repository = ref.read(appStateRepositoryProvider);
     result.map(
         undefined: (_) => state = Empty(),

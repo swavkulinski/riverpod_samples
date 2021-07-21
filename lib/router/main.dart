@@ -1,92 +1,79 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_testbed/router/home.dart';
-
+import 'package:riverpod_testbed/router/main.provider.dart';
+import 'connection_details.dart';
 import 'connections.dart';
+import 'router.dart';
 
 void main() {
   runApp(ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Navigator(
-        initialRoute: '/',
-        pages: [
-          MaterialPage(key: ValueKey('/'), child: HomePage()),
-          MaterialPage(key: ValueKey('/connections'), child: ConnectionsPage()),
-        ],
-        onPopPage: (route, result) => route.didPop(result),
-      ),
-    );
+  Widget build(context, ref) {
+    return MaterialApp.router(
+        routeInformationParser: ref(routeInformationParser),
+        routerDelegate: ref(routerDelegateProvider),);
+        
   }
 }
 
-class HomePage extends ConsumerWidget {
-  HomePage({
-    Key? key,
-  }) : super(key: key);
-  @override
-  Widget build(context, ref) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            HomeWidget(),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.train), label: 'Connections')
-        ],
-        onTap: (index) {
-    
-        },
-      ),
-    );
-  }
+class HomePage extends StatelessWidget {
+  Widget build(context) => _ScaffoldWidget(
+        currentIndex: 0,
+        child: HomeWidget(),
+      );
 }
 
-class ConnectionsPage extends ConsumerWidget {
-  ConnectionsPage({
-    Key? key,
-  }) : super(key: key);
+class ConnectionsPage extends StatelessWidget {
   @override
-  Widget build(context, ref) {
+  Widget build(context) => _ScaffoldWidget(
+        currentIndex: 1,
+        child: ConnectionsWidget(),
+      );
+}
+
+class ConnectionDetailsPage extends StatelessWidget {
+  @override
+  Widget build(context) => _ScaffoldWidget(
+        currentIndex: 1,
+        child: ConnectionDetailsWidget(),
+      );
+}
+
+class _ScaffoldWidget extends StatelessWidget {
+  final int currentIndex;
+  final Widget child;
+
+  const _ScaffoldWidget({
+    Key? key,
+    required this.currentIndex,
+    required this.child,
+  }) : super(key: key);
+
+  Widget build(context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Navigation Lab'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ConnectionsWidget(),
-          ],
-        ),
+        child: child,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 1,
+        currentIndex: currentIndex,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.train), label: 'Connections')
         ],
         onTap: (index) {
-          switch (index) {
-            case 1:
-          }
+          final delegate =
+              (Router.of(context).routerDelegate as ConnectionRouterDelegate);
+          if (index == 1)
+            delegate.goSelection();
+          else
+            delegate.goHome();
         },
       ),
     );
