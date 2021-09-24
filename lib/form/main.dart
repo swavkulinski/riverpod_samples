@@ -21,9 +21,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends ConsumerWidget {
-
-  final GlobalKey _formKey = GlobalKey<FormState>();
-
   MyHomePage({
     Key? key,
   }) : super(key: key);
@@ -34,34 +31,35 @@ class MyHomePage extends ConsumerWidget {
         title: const Text('Lab'),
       ),
       body: Form(
-        key: _formKey,
-        
+        key: ref(formKeyProvider),
         child: Column(
           children: <Widget>[
             TextFormField(
-              controller: ref(userDataStateNotifierProvider.notifier).firstNameController,
-              onChanged: (firstName) {
-                ref(userDataStateNotifierProvider.notifier).firstName = firstName;
-              },
+
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: ref(nonEmptyTextValidator),
+              controller: ref(textControllerProvider('firstName')),
             ),
+            Divider(height: 20,),
             TextFormField(
-              controller: ref(userDataStateNotifierProvider.notifier).lastNameController,
-              onChanged: (lastName) {
-                ref(userDataStateNotifierProvider.notifier).lastName = lastName;
-              },
+        
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: ref(nonEmptyTextValidator),
+              controller: ref(textControllerProvider('lastName')),
             ),
+            Divider(height: 20,),
             TextFormField(
-              controller: ref(userDataStateNotifierProvider.notifier).emailController,
-              onChanged: (email) {
-                ref(userDataStateNotifierProvider.notifier).email = email;
-              },
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: ref(isEmailValidator),
+              controller: ref(textControllerProvider('email')),
             ),
+            Divider(height: 20,),
             Row(
               children: [
                 ElevatedButton(
-                    onPressed: () {
-                      ref(userFormStateNotifierProvider.notifier).reset();
-                    },
+                    onPressed: ref(userFormStateNotifierProvider) is EmptyFormState ? null : () {
+                      ref(formStateProvider).reset();
+                    } ,
                     child: Text('Reset')),
                 SubmitButton(() {
                   ref(userFormStateNotifierProvider.notifier).submit();

@@ -5,15 +5,34 @@ import 'package:riverpod_testbed/form/models.dart';
 
 class UserFormStateNotifier extends StateNotifier<UserFormState> {
   final ProviderReference ref;
-  UserFormStateNotifier(this.ref) : super(EmptyFormState()) {
-    ref.read(userDataStateNotifierProvider.notifier).addListener((data) {
+  UserFormStateNotifier(this.ref)
+      : firstNameController = ref.watch(textControllerProvider('firstName')),
+        lastNameController = ref.watch(textControllerProvider('lastName')),
+        emailController = ref.watch(textControllerProvider('email')),
+        super(EmptyFormState()) {
+    final userDataStateNotifier = ref.read(userDataStateNotifierProvider.notifier);
+    firstNameController.addListener(() {
+      userDataStateNotifier.firstName = firstNameController.text;
+    });
+    lastNameController.addListener(() {
+      userDataStateNotifier.lastName = lastNameController.text;
+    });
+    emailController.addListener(() {
+      userDataStateNotifier.email = emailController.text;
+    });
+
+    userDataStateNotifier.addListener((data) {
       state.maybeWhen(
         orElse: () {},
-        empty: () => _setCompleteIfValid(data),
+        empty: () => !ref.read(userDataStateNotifierProvider.notifier).isEmpty ? state = IncompleteFormState() : null,
         incomplete: () => _setCompleteIfValid(data),
       );
     });
   }
+
+  final TextEditingController firstNameController;
+  final TextEditingController lastNameController;
+  final TextEditingController emailController;
 
   void submit() {
     state.when(
@@ -27,7 +46,10 @@ class UserFormStateNotifier extends StateNotifier<UserFormState> {
   }
 
   void reset() {
-    ref.watch(userDataStateNotifierProvider.notifier).reset();
+    //firstNameController.clear();
+    //lastNameController.clear();
+    //emailController.clear();
+    ref.watch(formStateProvider).reset();
     state = EmptyFormState();
     print('Form reset');
   }
@@ -43,11 +65,8 @@ class UserFormStateNotifier extends StateNotifier<UserFormState> {
 }
 
 class UserDataStateNotifier extends StateNotifier<UserData> {
-  UserDataStateNotifier() : super(UserData());
-
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
+  final ProviderReference ref;
+  UserDataStateNotifier(this.ref) : super(UserData());
 
   set firstName(String firstName) => state = state.copyWith(firstName: firstName);
 
@@ -57,14 +76,15 @@ class UserDataStateNotifier extends StateNotifier<UserData> {
 
   void reset() {
     state = UserData();
-    firstNameController.clear();
-    lastNameController.clear();
-    emailController.clear();
-    
   }
 
   bool get isValid =>
       (state.firstName?.isNotEmpty ?? false) &&
       (state.lastName?.isNotEmpty ?? false) &&
-      (state.email?.isNotEmpty ?? false);
+      (ref.read(isEmailValidator)(state.email) == null);
+
+  bool get isEmpty =>
+      (state.firstName?.isEmpty ?? true) &&
+      (state.lastName?.isEmpty ?? true) &&
+      (state.email?.isEmpty ?? true);
 }
