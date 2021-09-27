@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_testbed/form/text_form_field.dart';
 import 'package:riverpod_testbed/form/form.provider.dart';
-import 'package:riverpod_testbed/form/models.dart';
 
 void main() {
   runApp(ProviderScope(child: MyApp()));
@@ -26,6 +26,8 @@ class MyHomePage extends ConsumerWidget {
   }) : super(key: key);
   @override
   Widget build(context, ref) {
+    final userData = ref(userDataStateNotifierProvider);
+    final notifier = ref(userDataStateNotifierProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lab'),
@@ -34,59 +36,53 @@ class MyHomePage extends ConsumerWidget {
         key: ref(formKeyProvider),
         child: Column(
           children: <Widget>[
-            TextFormField(
-
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: ref(nonEmptyTextValidator),
-              controller: ref(textControllerProvider('firstName')),
+            NameForm(
+              onChanged: (value) => notifier.firstName = value,
             ),
-            Divider(height: 20,),
-            TextFormField(
-        
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: ref(nonEmptyTextValidator),
-              controller: ref(textControllerProvider('lastName')),
+            Divider(
+              height: 20,
             ),
-            Divider(height: 20,),
-            TextFormField(
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: ref(isEmailValidator),
-              controller: ref(textControllerProvider('email')),
+            NameForm(
+              onChanged: (value) => notifier.lastName = value,
             ),
-            Divider(height: 20,),
+            Divider(
+              height: 20,
+            ),
+            EmailForm(
+              onChanged: (value) => notifier.email = value,
+            ),
+            Divider(
+              height: 20,
+            ),
             Row(
               children: [
                 ElevatedButton(
-                    onPressed: ref(userFormStateNotifierProvider) is EmptyFormState ? null : () {
-                      ref(formStateProvider).reset();
-                    } ,
+                    onPressed: userData.isEmpty
+                        ? null
+                        : 
+                        () {
+                            notifier.reset();
+                          },
                     child: Text('Reset')),
-                SubmitButton(() {
-                  ref(userFormStateNotifierProvider.notifier).submit();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Processing'),
-                    ),
-                  );
-                }),
+                ElevatedButton(
+                    child: Text('Submit'),
+                    onPressed: userData.isValid
+                        ? () {
+                            final formData = ref(userDataStateNotifierProvider);
+                            print(
+                                'Submitting ${formData.firstName} ${formData.lastName} ${formData.email}');
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Processing'),
+                              ),
+                            );
+                          }
+                        : null),
               ],
             )
           ],
         ),
       ),
     );
-  }
-}
-
-class SubmitButton extends ConsumerWidget {
-  final VoidCallback? handler;
-
-  SubmitButton(this.handler);
-
-  @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    return ElevatedButton(
-        onPressed: watch(userFormStateNotifierProvider) is CompletedFormState ? handler : null,
-        child: Text('Submit'));
   }
 }

@@ -578,8 +578,8 @@ class __$UserDataCopyWithImpl<$Res> extends _$UserDataCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UserData implements _UserData {
-  const _$_UserData({this.firstName, this.lastName, this.email});
+class _$_UserData extends _UserData {
+  const _$_UserData({this.firstName, this.lastName, this.email}) : super._();
 
   @override
   final String? firstName;
@@ -620,9 +620,10 @@ class _$_UserData implements _UserData {
       __$UserDataCopyWithImpl<_UserData>(this, _$identity);
 }
 
-abstract class _UserData implements UserData {
+abstract class _UserData extends UserData {
   const factory _UserData(
       {String? firstName, String? lastName, String? email}) = _$_UserData;
+  const _UserData._() : super._();
 
   @override
   String? get firstName => throw _privateConstructorUsedError;
