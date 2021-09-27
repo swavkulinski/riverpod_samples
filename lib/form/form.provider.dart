@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_testbed/form/models.dart';
-import 'package:riverpod_testbed/form/user_form_state_notifier.dart';
+import 'package:riverpod_testbed/form/user_data_state_notifier.dart';
 
 final formKeyProvider = Provider<GlobalKey<FormState>>((ref) => GlobalKey<FormState>());
 
