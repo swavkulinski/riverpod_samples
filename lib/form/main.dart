@@ -59,8 +59,7 @@ class MyHomePage extends ConsumerWidget {
                 ElevatedButton(
                     onPressed: userData.isEmpty
                         ? null
-                        : 
-                        () {
+                        : () {
                             notifier.reset();
                           },
                     child: Text('Reset')),
@@ -68,9 +67,7 @@ class MyHomePage extends ConsumerWidget {
                     child: Text('Submit'),
                     onPressed: userData.isValid
                         ? () {
-                            final formData = ref(userDataStateNotifierProvider);
-                            print(
-                                'Submitting ${formData.firstName} ${formData.lastName} ${formData.email}');
+                            notifier.submit();
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                 content: Text('Processing'),
