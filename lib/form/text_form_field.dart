@@ -20,7 +20,7 @@ final _nameValidatorProvider = Provider<String? Function(String?)>((ref) => (inp
     ref.read(_nameRegexProvider).hasMatch(input ?? '')
         ? null
         : ref.watch(_invalidNameMessageProvider));
-
+// All specific TextForm constructors forward to private classes
 abstract class TextForm extends ConsumerWidget {
   final Function(String) onChanged;
   TextForm({Key? key, required this.onChanged}) : super(key: key);
