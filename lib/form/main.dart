@@ -36,19 +36,19 @@ class MyHomePage extends ConsumerWidget {
         key: ref(formKeyProvider),
         child: Column(
           children: <Widget>[
-            NameForm(
+            TextForm.name(
               onChanged: (value) => notifier.firstName = value,
             ),
             Divider(
               height: 20,
             ),
-            NameForm(
+            TextForm.name(
               onChanged: (value) => notifier.lastName = value,
             ),
             Divider(
               height: 20,
             ),
-            EmailForm(
+            TextForm.email(
               onChanged: (value) => notifier.email = value,
             ),
             Divider(
