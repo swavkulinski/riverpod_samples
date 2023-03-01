@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'view_state.dart';
 
@@ -10,33 +12,7 @@ part of 'view_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ViewStateTearOff {
-  const _$ViewStateTearOff();
-
-  Empty empty() {
-    return const Empty();
-  }
-
-  Loading loading() {
-    return const Loading();
-  }
-
-  Error error() {
-    return const Error();
-  }
-
-  LoadedValue loaded(String value) {
-    return LoadedValue(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $ViewState = _$ViewStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ViewState {
@@ -46,6 +22,14 @@ mixin _$ViewState {
     required TResult Function() loading,
     required TResult Function() error,
     required TResult Function(String value) loaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? loading,
+    TResult? Function()? error,
+    TResult? Function(String value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +50,14 @@ mixin _$ViewState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Empty value)? empty,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Error value)? error,
+    TResult? Function(LoadedValue value)? loaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty value)? empty,
     TResult Function(Loading value)? loading,
@@ -79,32 +71,31 @@ mixin _$ViewState {
 /// @nodoc
 abstract class $ViewStateCopyWith<$Res> {
   factory $ViewStateCopyWith(ViewState value, $Res Function(ViewState) then) =
-      _$ViewStateCopyWithImpl<$Res>;
+      _$ViewStateCopyWithImpl<$Res, ViewState>;
 }
 
 /// @nodoc
-class _$ViewStateCopyWithImpl<$Res> implements $ViewStateCopyWith<$Res> {
+class _$ViewStateCopyWithImpl<$Res, $Val extends ViewState>
+    implements $ViewStateCopyWith<$Res> {
   _$ViewStateCopyWithImpl(this._value, this._then);
 
-  final ViewState _value;
   // ignore: unused_field
-  final $Res Function(ViewState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class $EmptyCopyWith<$Res> {
-  factory $EmptyCopyWith(Empty value, $Res Function(Empty) then) =
-      _$EmptyCopyWithImpl<$Res>;
+abstract class _$$EmptyCopyWith<$Res> {
+  factory _$$EmptyCopyWith(_$Empty value, $Res Function(_$Empty) then) =
+      __$$EmptyCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$EmptyCopyWithImpl<$Res> extends _$ViewStateCopyWithImpl<$Res>
-    implements $EmptyCopyWith<$Res> {
-  _$EmptyCopyWithImpl(Empty _value, $Res Function(Empty) _then)
-      : super(_value, (v) => _then(v as Empty));
-
-  @override
-  Empty get _value => super._value as Empty;
+class __$$EmptyCopyWithImpl<$Res> extends _$ViewStateCopyWithImpl<$Res, _$Empty>
+    implements _$$EmptyCopyWith<$Res> {
+  __$$EmptyCopyWithImpl(_$Empty _value, $Res Function(_$Empty) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -119,7 +110,8 @@ class _$Empty implements Empty {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Empty);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$Empty);
   }
 
   @override
@@ -134,6 +126,17 @@ class _$Empty implements Empty {
     required TResult Function(String value) loaded,
   }) {
     return empty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? loading,
+    TResult? Function()? error,
+    TResult? Function(String value)? loaded,
+  }) {
+    return empty?.call();
   }
 
   @override
@@ -164,6 +167,17 @@ class _$Empty implements Empty {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Empty value)? empty,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Error value)? error,
+    TResult? Function(LoadedValue value)? loaded,
+  }) {
+    return empty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty value)? empty,
     TResult Function(Loading value)? loading,
@@ -183,19 +197,17 @@ abstract class Empty implements ViewState {
 }
 
 /// @nodoc
-abstract class $LoadingCopyWith<$Res> {
-  factory $LoadingCopyWith(Loading value, $Res Function(Loading) then) =
-      _$LoadingCopyWithImpl<$Res>;
+abstract class _$$LoadingCopyWith<$Res> {
+  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
+      __$$LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LoadingCopyWithImpl<$Res> extends _$ViewStateCopyWithImpl<$Res>
-    implements $LoadingCopyWith<$Res> {
-  _$LoadingCopyWithImpl(Loading _value, $Res Function(Loading) _then)
-      : super(_value, (v) => _then(v as Loading));
-
-  @override
-  Loading get _value => super._value as Loading;
+class __$$LoadingCopyWithImpl<$Res>
+    extends _$ViewStateCopyWithImpl<$Res, _$Loading>
+    implements _$$LoadingCopyWith<$Res> {
+  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -210,7 +222,8 @@ class _$Loading implements Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$Loading);
   }
 
   @override
@@ -225,6 +238,17 @@ class _$Loading implements Loading {
     required TResult Function(String value) loaded,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? loading,
+    TResult? Function()? error,
+    TResult? Function(String value)? loaded,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -255,6 +279,17 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Empty value)? empty,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Error value)? error,
+    TResult? Function(LoadedValue value)? loaded,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty value)? empty,
     TResult Function(Loading value)? loading,
@@ -274,19 +309,16 @@ abstract class Loading implements ViewState {
 }
 
 /// @nodoc
-abstract class $ErrorCopyWith<$Res> {
-  factory $ErrorCopyWith(Error value, $Res Function(Error) then) =
-      _$ErrorCopyWithImpl<$Res>;
+abstract class _$$ErrorCopyWith<$Res> {
+  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
+      __$$ErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ErrorCopyWithImpl<$Res> extends _$ViewStateCopyWithImpl<$Res>
-    implements $ErrorCopyWith<$Res> {
-  _$ErrorCopyWithImpl(Error _value, $Res Function(Error) _then)
-      : super(_value, (v) => _then(v as Error));
-
-  @override
-  Error get _value => super._value as Error;
+class __$$ErrorCopyWithImpl<$Res> extends _$ViewStateCopyWithImpl<$Res, _$Error>
+    implements _$$ErrorCopyWith<$Res> {
+  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -301,7 +333,8 @@ class _$Error implements Error {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Error);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$Error);
   }
 
   @override
@@ -316,6 +349,17 @@ class _$Error implements Error {
     required TResult Function(String value) loaded,
   }) {
     return error();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? loading,
+    TResult? Function()? error,
+    TResult? Function(String value)? loaded,
+  }) {
+    return error?.call();
   }
 
   @override
@@ -346,6 +390,17 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Empty value)? empty,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Error value)? error,
+    TResult? Function(LoadedValue value)? loaded,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty value)? empty,
     TResult Function(Loading value)? loading,
@@ -365,29 +420,29 @@ abstract class Error implements ViewState {
 }
 
 /// @nodoc
-abstract class $LoadedValueCopyWith<$Res> {
-  factory $LoadedValueCopyWith(
-          LoadedValue value, $Res Function(LoadedValue) then) =
-      _$LoadedValueCopyWithImpl<$Res>;
+abstract class _$$LoadedValueCopyWith<$Res> {
+  factory _$$LoadedValueCopyWith(
+          _$LoadedValue value, $Res Function(_$LoadedValue) then) =
+      __$$LoadedValueCopyWithImpl<$Res>;
+  @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$LoadedValueCopyWithImpl<$Res> extends _$ViewStateCopyWithImpl<$Res>
-    implements $LoadedValueCopyWith<$Res> {
-  _$LoadedValueCopyWithImpl(
-      LoadedValue _value, $Res Function(LoadedValue) _then)
-      : super(_value, (v) => _then(v as LoadedValue));
+class __$$LoadedValueCopyWithImpl<$Res>
+    extends _$ViewStateCopyWithImpl<$Res, _$LoadedValue>
+    implements _$$LoadedValueCopyWith<$Res> {
+  __$$LoadedValueCopyWithImpl(
+      _$LoadedValue _value, $Res Function(_$LoadedValue) _then)
+      : super(_value, _then);
 
-  @override
-  LoadedValue get _value => super._value as LoadedValue;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
-    return _then(LoadedValue(
-      value == freezed
+    return _then(_$LoadedValue(
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -411,19 +466,19 @@ class _$LoadedValue implements LoadedValue {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LoadedValue &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _$LoadedValue &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
-  $LoadedValueCopyWith<LoadedValue> get copyWith =>
-      _$LoadedValueCopyWithImpl<LoadedValue>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$LoadedValueCopyWith<_$LoadedValue> get copyWith =>
+      __$$LoadedValueCopyWithImpl<_$LoadedValue>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -434,6 +489,17 @@ class _$LoadedValue implements LoadedValue {
     required TResult Function(String value) loaded,
   }) {
     return loaded(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? loading,
+    TResult? Function()? error,
+    TResult? Function(String value)? loaded,
+  }) {
+    return loaded?.call(value);
   }
 
   @override
@@ -464,6 +530,17 @@ class _$LoadedValue implements LoadedValue {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Empty value)? empty,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Error value)? error,
+    TResult? Function(LoadedValue value)? loaded,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty value)? empty,
     TResult Function(Loading value)? loading,
@@ -479,10 +556,10 @@ class _$LoadedValue implements LoadedValue {
 }
 
 abstract class LoadedValue implements ViewState {
-  const factory LoadedValue(String value) = _$LoadedValue;
+  const factory LoadedValue(final String value) = _$LoadedValue;
 
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @JsonKey(ignore: true)
-  $LoadedValueCopyWith<LoadedValue> get copyWith =>
+  _$$LoadedValueCopyWith<_$LoadedValue> get copyWith =>
       throw _privateConstructorUsedError;
 }

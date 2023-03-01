@@ -24,12 +24,12 @@ run  `flutter run lib/state/main.dart`
 
 
 
-State Async
+Async Task
 ---
 
-Simple, asynchronous state management
+Simple async task
 
-run  `flutter run lib/state_async/main.dart`
+run  `flutter run lib/async_task/main.dart`
 
 
 

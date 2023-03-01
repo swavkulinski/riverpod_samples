@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'app_state.dart';
 
@@ -10,21 +12,7 @@ part of 'app_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AppStateTearOff {
-  const _$AppStateTearOff();
-
-  _AppState call({required Response response}) {
-    return _AppState(
-      response: response,
-    );
-  }
-}
-
-/// @nodoc
-const $AppState = _$AppStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AppState {
@@ -38,45 +26,52 @@ mixin _$AppState {
 /// @nodoc
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
-      _$AppStateCopyWithImpl<$Res>;
+      _$AppStateCopyWithImpl<$Res, AppState>;
+  @useResult
   $Res call({Response response});
 
   $ResponseCopyWith<$Res> get response;
 }
 
 /// @nodoc
-class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
+class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
+    implements $AppStateCopyWith<$Res> {
   _$AppStateCopyWithImpl(this._value, this._then);
 
-  final AppState _value;
   // ignore: unused_field
-  final $Res Function(AppState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? response = freezed,
+    Object? response = null,
   }) {
     return _then(_value.copyWith(
-      response: response == freezed
+      response: null == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
               as Response,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ResponseCopyWith<$Res> get response {
     return $ResponseCopyWith<$Res>(_value.response, (value) {
-      return _then(_value.copyWith(response: value));
+      return _then(_value.copyWith(response: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
-  factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) =
-      __$AppStateCopyWithImpl<$Res>;
+abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
+  factory _$$_AppStateCopyWith(
+          _$_AppState value, $Res Function(_$_AppState) then) =
+      __$$_AppStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Response response});
 
   @override
@@ -84,20 +79,20 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
-    implements _$AppStateCopyWith<$Res> {
-  __$AppStateCopyWithImpl(_AppState _value, $Res Function(_AppState) _then)
-      : super(_value, (v) => _then(v as _AppState));
+class __$$_AppStateCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$_AppState>
+    implements _$$_AppStateCopyWith<$Res> {
+  __$$_AppStateCopyWithImpl(
+      _$_AppState _value, $Res Function(_$_AppState) _then)
+      : super(_value, _then);
 
-  @override
-  _AppState get _value => super._value as _AppState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? response = freezed,
+    Object? response = null,
   }) {
-    return _then(_AppState(
-      response: response == freezed
+    return _then(_$_AppState(
+      response: null == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
               as Response,
@@ -121,58 +116,32 @@ class _$_AppState implements _AppState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AppState &&
+        (other.runtimeType == runtimeType &&
+            other is _$_AppState &&
             (identical(other.response, response) ||
-                const DeepCollectionEquality()
-                    .equals(other.response, response)));
+                other.response == response));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(response);
+  int get hashCode => Object.hash(runtimeType, response);
 
   @JsonKey(ignore: true)
   @override
-  _$AppStateCopyWith<_AppState> get copyWith =>
-      __$AppStateCopyWithImpl<_AppState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_AppStateCopyWith<_$_AppState> get copyWith =>
+      __$$_AppStateCopyWithImpl<_$_AppState>(this, _$identity);
 }
 
 abstract class _AppState implements AppState {
-  factory _AppState({required Response response}) = _$_AppState;
+  factory _AppState({required final Response response}) = _$_AppState;
 
   @override
-  Response get response => throw _privateConstructorUsedError;
+  Response get response;
   @override
   @JsonKey(ignore: true)
-  _$AppStateCopyWith<_AppState> get copyWith =>
+  _$$_AppStateCopyWith<_$_AppState> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$ResponseTearOff {
-  const _$ResponseTearOff();
-
-  Undefined undefined() {
-    return const Undefined();
-  }
-
-  Unauthorized unauthorised() {
-    return const Unauthorized();
-  }
-
-  BadRequest badRequest() {
-    return const BadRequest();
-  }
-
-  AppStateResponse appState(String value) {
-    return AppStateResponse(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $Response = _$ResponseTearOff();
 
 /// @nodoc
 mixin _$Response {
@@ -182,6 +151,14 @@ mixin _$Response {
     required TResult Function() unauthorised,
     required TResult Function() badRequest,
     required TResult Function(String value) appState,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? undefined,
+    TResult? Function()? unauthorised,
+    TResult? Function()? badRequest,
+    TResult? Function(String value)? appState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -202,6 +179,14 @@ mixin _$Response {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Undefined value)? undefined,
+    TResult? Function(Unauthorized value)? unauthorised,
+    TResult? Function(BadRequest value)? badRequest,
+    TResult? Function(AppStateResponse value)? appState,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Undefined value)? undefined,
     TResult Function(Unauthorized value)? unauthorised,
@@ -215,32 +200,34 @@ mixin _$Response {
 /// @nodoc
 abstract class $ResponseCopyWith<$Res> {
   factory $ResponseCopyWith(Response value, $Res Function(Response) then) =
-      _$ResponseCopyWithImpl<$Res>;
+      _$ResponseCopyWithImpl<$Res, Response>;
 }
 
 /// @nodoc
-class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
+class _$ResponseCopyWithImpl<$Res, $Val extends Response>
+    implements $ResponseCopyWith<$Res> {
   _$ResponseCopyWithImpl(this._value, this._then);
 
-  final Response _value;
   // ignore: unused_field
-  final $Res Function(Response) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class $UndefinedCopyWith<$Res> {
-  factory $UndefinedCopyWith(Undefined value, $Res Function(Undefined) then) =
-      _$UndefinedCopyWithImpl<$Res>;
+abstract class _$$UndefinedCopyWith<$Res> {
+  factory _$$UndefinedCopyWith(
+          _$Undefined value, $Res Function(_$Undefined) then) =
+      __$$UndefinedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UndefinedCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
-    implements $UndefinedCopyWith<$Res> {
-  _$UndefinedCopyWithImpl(Undefined _value, $Res Function(Undefined) _then)
-      : super(_value, (v) => _then(v as Undefined));
-
-  @override
-  Undefined get _value => super._value as Undefined;
+class __$$UndefinedCopyWithImpl<$Res>
+    extends _$ResponseCopyWithImpl<$Res, _$Undefined>
+    implements _$$UndefinedCopyWith<$Res> {
+  __$$UndefinedCopyWithImpl(
+      _$Undefined _value, $Res Function(_$Undefined) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -255,7 +242,8 @@ class _$Undefined implements Undefined {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Undefined);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$Undefined);
   }
 
   @override
@@ -270,6 +258,17 @@ class _$Undefined implements Undefined {
     required TResult Function(String value) appState,
   }) {
     return undefined();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? undefined,
+    TResult? Function()? unauthorised,
+    TResult? Function()? badRequest,
+    TResult? Function(String value)? appState,
+  }) {
+    return undefined?.call();
   }
 
   @override
@@ -300,6 +299,17 @@ class _$Undefined implements Undefined {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Undefined value)? undefined,
+    TResult? Function(Unauthorized value)? unauthorised,
+    TResult? Function(BadRequest value)? badRequest,
+    TResult? Function(AppStateResponse value)? appState,
+  }) {
+    return undefined?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Undefined value)? undefined,
     TResult Function(Unauthorized value)? unauthorised,
@@ -319,21 +329,19 @@ abstract class Undefined implements Response {
 }
 
 /// @nodoc
-abstract class $UnauthorizedCopyWith<$Res> {
-  factory $UnauthorizedCopyWith(
-          Unauthorized value, $Res Function(Unauthorized) then) =
-      _$UnauthorizedCopyWithImpl<$Res>;
+abstract class _$$UnauthorizedCopyWith<$Res> {
+  factory _$$UnauthorizedCopyWith(
+          _$Unauthorized value, $Res Function(_$Unauthorized) then) =
+      __$$UnauthorizedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UnauthorizedCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
-    implements $UnauthorizedCopyWith<$Res> {
-  _$UnauthorizedCopyWithImpl(
-      Unauthorized _value, $Res Function(Unauthorized) _then)
-      : super(_value, (v) => _then(v as Unauthorized));
-
-  @override
-  Unauthorized get _value => super._value as Unauthorized;
+class __$$UnauthorizedCopyWithImpl<$Res>
+    extends _$ResponseCopyWithImpl<$Res, _$Unauthorized>
+    implements _$$UnauthorizedCopyWith<$Res> {
+  __$$UnauthorizedCopyWithImpl(
+      _$Unauthorized _value, $Res Function(_$Unauthorized) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -348,7 +356,8 @@ class _$Unauthorized implements Unauthorized {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Unauthorized);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$Unauthorized);
   }
 
   @override
@@ -363,6 +372,17 @@ class _$Unauthorized implements Unauthorized {
     required TResult Function(String value) appState,
   }) {
     return unauthorised();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? undefined,
+    TResult? Function()? unauthorised,
+    TResult? Function()? badRequest,
+    TResult? Function(String value)? appState,
+  }) {
+    return unauthorised?.call();
   }
 
   @override
@@ -393,6 +413,17 @@ class _$Unauthorized implements Unauthorized {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Undefined value)? undefined,
+    TResult? Function(Unauthorized value)? unauthorised,
+    TResult? Function(BadRequest value)? badRequest,
+    TResult? Function(AppStateResponse value)? appState,
+  }) {
+    return unauthorised?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Undefined value)? undefined,
     TResult Function(Unauthorized value)? unauthorised,
@@ -412,20 +443,19 @@ abstract class Unauthorized implements Response {
 }
 
 /// @nodoc
-abstract class $BadRequestCopyWith<$Res> {
-  factory $BadRequestCopyWith(
-          BadRequest value, $Res Function(BadRequest) then) =
-      _$BadRequestCopyWithImpl<$Res>;
+abstract class _$$BadRequestCopyWith<$Res> {
+  factory _$$BadRequestCopyWith(
+          _$BadRequest value, $Res Function(_$BadRequest) then) =
+      __$$BadRequestCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$BadRequestCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
-    implements $BadRequestCopyWith<$Res> {
-  _$BadRequestCopyWithImpl(BadRequest _value, $Res Function(BadRequest) _then)
-      : super(_value, (v) => _then(v as BadRequest));
-
-  @override
-  BadRequest get _value => super._value as BadRequest;
+class __$$BadRequestCopyWithImpl<$Res>
+    extends _$ResponseCopyWithImpl<$Res, _$BadRequest>
+    implements _$$BadRequestCopyWith<$Res> {
+  __$$BadRequestCopyWithImpl(
+      _$BadRequest _value, $Res Function(_$BadRequest) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -440,7 +470,8 @@ class _$BadRequest implements BadRequest {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is BadRequest);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$BadRequest);
   }
 
   @override
@@ -455,6 +486,17 @@ class _$BadRequest implements BadRequest {
     required TResult Function(String value) appState,
   }) {
     return badRequest();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? undefined,
+    TResult? Function()? unauthorised,
+    TResult? Function()? badRequest,
+    TResult? Function(String value)? appState,
+  }) {
+    return badRequest?.call();
   }
 
   @override
@@ -485,6 +527,17 @@ class _$BadRequest implements BadRequest {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Undefined value)? undefined,
+    TResult? Function(Unauthorized value)? unauthorised,
+    TResult? Function(BadRequest value)? badRequest,
+    TResult? Function(AppStateResponse value)? appState,
+  }) {
+    return badRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Undefined value)? undefined,
     TResult Function(Unauthorized value)? unauthorised,
@@ -504,29 +557,29 @@ abstract class BadRequest implements Response {
 }
 
 /// @nodoc
-abstract class $AppStateResponseCopyWith<$Res> {
-  factory $AppStateResponseCopyWith(
-          AppStateResponse value, $Res Function(AppStateResponse) then) =
-      _$AppStateResponseCopyWithImpl<$Res>;
+abstract class _$$AppStateResponseCopyWith<$Res> {
+  factory _$$AppStateResponseCopyWith(
+          _$AppStateResponse value, $Res Function(_$AppStateResponse) then) =
+      __$$AppStateResponseCopyWithImpl<$Res>;
+  @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$AppStateResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
-    implements $AppStateResponseCopyWith<$Res> {
-  _$AppStateResponseCopyWithImpl(
-      AppStateResponse _value, $Res Function(AppStateResponse) _then)
-      : super(_value, (v) => _then(v as AppStateResponse));
+class __$$AppStateResponseCopyWithImpl<$Res>
+    extends _$ResponseCopyWithImpl<$Res, _$AppStateResponse>
+    implements _$$AppStateResponseCopyWith<$Res> {
+  __$$AppStateResponseCopyWithImpl(
+      _$AppStateResponse _value, $Res Function(_$AppStateResponse) _then)
+      : super(_value, _then);
 
-  @override
-  AppStateResponse get _value => super._value as AppStateResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
-    return _then(AppStateResponse(
-      value == freezed
+    return _then(_$AppStateResponse(
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -550,19 +603,19 @@ class _$AppStateResponse implements AppStateResponse {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is AppStateResponse &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _$AppStateResponse &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
-  $AppStateResponseCopyWith<AppStateResponse> get copyWith =>
-      _$AppStateResponseCopyWithImpl<AppStateResponse>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AppStateResponseCopyWith<_$AppStateResponse> get copyWith =>
+      __$$AppStateResponseCopyWithImpl<_$AppStateResponse>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -573,6 +626,17 @@ class _$AppStateResponse implements AppStateResponse {
     required TResult Function(String value) appState,
   }) {
     return appState(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? undefined,
+    TResult? Function()? unauthorised,
+    TResult? Function()? badRequest,
+    TResult? Function(String value)? appState,
+  }) {
+    return appState?.call(value);
   }
 
   @override
@@ -603,6 +667,17 @@ class _$AppStateResponse implements AppStateResponse {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Undefined value)? undefined,
+    TResult? Function(Unauthorized value)? unauthorised,
+    TResult? Function(BadRequest value)? badRequest,
+    TResult? Function(AppStateResponse value)? appState,
+  }) {
+    return appState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Undefined value)? undefined,
     TResult Function(Unauthorized value)? unauthorised,
@@ -618,10 +693,10 @@ class _$AppStateResponse implements AppStateResponse {
 }
 
 abstract class AppStateResponse implements Response {
-  const factory AppStateResponse(String value) = _$AppStateResponse;
+  const factory AppStateResponse(final String value) = _$AppStateResponse;
 
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @JsonKey(ignore: true)
-  $AppStateResponseCopyWith<AppStateResponse> get copyWith =>
+  _$$AppStateResponseCopyWith<_$AppStateResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

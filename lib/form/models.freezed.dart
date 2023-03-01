@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'models.dart';
 
@@ -10,31 +12,7 @@ part of 'models.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$UserFormStateTearOff {
-  const _$UserFormStateTearOff();
-
-  EmptyFormState empty() {
-    return const EmptyFormState();
-  }
-
-  IncompleteFormState incomplete() {
-    return const IncompleteFormState();
-  }
-
-  CompletedFormState completed() {
-    return const CompletedFormState();
-  }
-
-  SubmittedFormState submitted() {
-    return const SubmittedFormState();
-  }
-}
-
-/// @nodoc
-const $UserFormState = _$UserFormStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UserFormState {
@@ -44,6 +22,14 @@ mixin _$UserFormState {
     required TResult Function() incomplete,
     required TResult Function() completed,
     required TResult Function() submitted,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? incomplete,
+    TResult? Function()? completed,
+    TResult? Function()? submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +50,14 @@ mixin _$UserFormState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EmptyFormState value)? empty,
+    TResult? Function(IncompleteFormState value)? incomplete,
+    TResult? Function(CompletedFormState value)? completed,
+    TResult? Function(SubmittedFormState value)? submitted,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EmptyFormState value)? empty,
     TResult Function(IncompleteFormState value)? incomplete,
@@ -78,36 +72,34 @@ mixin _$UserFormState {
 abstract class $UserFormStateCopyWith<$Res> {
   factory $UserFormStateCopyWith(
           UserFormState value, $Res Function(UserFormState) then) =
-      _$UserFormStateCopyWithImpl<$Res>;
+      _$UserFormStateCopyWithImpl<$Res, UserFormState>;
 }
 
 /// @nodoc
-class _$UserFormStateCopyWithImpl<$Res>
+class _$UserFormStateCopyWithImpl<$Res, $Val extends UserFormState>
     implements $UserFormStateCopyWith<$Res> {
   _$UserFormStateCopyWithImpl(this._value, this._then);
 
-  final UserFormState _value;
   // ignore: unused_field
-  final $Res Function(UserFormState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class $EmptyFormStateCopyWith<$Res> {
-  factory $EmptyFormStateCopyWith(
-          EmptyFormState value, $Res Function(EmptyFormState) then) =
-      _$EmptyFormStateCopyWithImpl<$Res>;
+abstract class _$$EmptyFormStateCopyWith<$Res> {
+  factory _$$EmptyFormStateCopyWith(
+          _$EmptyFormState value, $Res Function(_$EmptyFormState) then) =
+      __$$EmptyFormStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$EmptyFormStateCopyWithImpl<$Res>
-    extends _$UserFormStateCopyWithImpl<$Res>
-    implements $EmptyFormStateCopyWith<$Res> {
-  _$EmptyFormStateCopyWithImpl(
-      EmptyFormState _value, $Res Function(EmptyFormState) _then)
-      : super(_value, (v) => _then(v as EmptyFormState));
-
-  @override
-  EmptyFormState get _value => super._value as EmptyFormState;
+class __$$EmptyFormStateCopyWithImpl<$Res>
+    extends _$UserFormStateCopyWithImpl<$Res, _$EmptyFormState>
+    implements _$$EmptyFormStateCopyWith<$Res> {
+  __$$EmptyFormStateCopyWithImpl(
+      _$EmptyFormState _value, $Res Function(_$EmptyFormState) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -122,7 +114,8 @@ class _$EmptyFormState extends EmptyFormState {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is EmptyFormState);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmptyFormState);
   }
 
   @override
@@ -137,6 +130,17 @@ class _$EmptyFormState extends EmptyFormState {
     required TResult Function() submitted,
   }) {
     return empty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? incomplete,
+    TResult? Function()? completed,
+    TResult? Function()? submitted,
+  }) {
+    return empty?.call();
   }
 
   @override
@@ -167,6 +171,17 @@ class _$EmptyFormState extends EmptyFormState {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EmptyFormState value)? empty,
+    TResult? Function(IncompleteFormState value)? incomplete,
+    TResult? Function(CompletedFormState value)? completed,
+    TResult? Function(SubmittedFormState value)? submitted,
+  }) {
+    return empty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EmptyFormState value)? empty,
     TResult Function(IncompleteFormState value)? incomplete,
@@ -187,22 +202,19 @@ abstract class EmptyFormState extends UserFormState {
 }
 
 /// @nodoc
-abstract class $IncompleteFormStateCopyWith<$Res> {
-  factory $IncompleteFormStateCopyWith(
-          IncompleteFormState value, $Res Function(IncompleteFormState) then) =
-      _$IncompleteFormStateCopyWithImpl<$Res>;
+abstract class _$$IncompleteFormStateCopyWith<$Res> {
+  factory _$$IncompleteFormStateCopyWith(_$IncompleteFormState value,
+          $Res Function(_$IncompleteFormState) then) =
+      __$$IncompleteFormStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$IncompleteFormStateCopyWithImpl<$Res>
-    extends _$UserFormStateCopyWithImpl<$Res>
-    implements $IncompleteFormStateCopyWith<$Res> {
-  _$IncompleteFormStateCopyWithImpl(
-      IncompleteFormState _value, $Res Function(IncompleteFormState) _then)
-      : super(_value, (v) => _then(v as IncompleteFormState));
-
-  @override
-  IncompleteFormState get _value => super._value as IncompleteFormState;
+class __$$IncompleteFormStateCopyWithImpl<$Res>
+    extends _$UserFormStateCopyWithImpl<$Res, _$IncompleteFormState>
+    implements _$$IncompleteFormStateCopyWith<$Res> {
+  __$$IncompleteFormStateCopyWithImpl(
+      _$IncompleteFormState _value, $Res Function(_$IncompleteFormState) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -217,7 +229,8 @@ class _$IncompleteFormState extends IncompleteFormState {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is IncompleteFormState);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$IncompleteFormState);
   }
 
   @override
@@ -232,6 +245,17 @@ class _$IncompleteFormState extends IncompleteFormState {
     required TResult Function() submitted,
   }) {
     return incomplete();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? incomplete,
+    TResult? Function()? completed,
+    TResult? Function()? submitted,
+  }) {
+    return incomplete?.call();
   }
 
   @override
@@ -262,6 +286,17 @@ class _$IncompleteFormState extends IncompleteFormState {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EmptyFormState value)? empty,
+    TResult? Function(IncompleteFormState value)? incomplete,
+    TResult? Function(CompletedFormState value)? completed,
+    TResult? Function(SubmittedFormState value)? submitted,
+  }) {
+    return incomplete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EmptyFormState value)? empty,
     TResult Function(IncompleteFormState value)? incomplete,
@@ -282,22 +317,19 @@ abstract class IncompleteFormState extends UserFormState {
 }
 
 /// @nodoc
-abstract class $CompletedFormStateCopyWith<$Res> {
-  factory $CompletedFormStateCopyWith(
-          CompletedFormState value, $Res Function(CompletedFormState) then) =
-      _$CompletedFormStateCopyWithImpl<$Res>;
+abstract class _$$CompletedFormStateCopyWith<$Res> {
+  factory _$$CompletedFormStateCopyWith(_$CompletedFormState value,
+          $Res Function(_$CompletedFormState) then) =
+      __$$CompletedFormStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CompletedFormStateCopyWithImpl<$Res>
-    extends _$UserFormStateCopyWithImpl<$Res>
-    implements $CompletedFormStateCopyWith<$Res> {
-  _$CompletedFormStateCopyWithImpl(
-      CompletedFormState _value, $Res Function(CompletedFormState) _then)
-      : super(_value, (v) => _then(v as CompletedFormState));
-
-  @override
-  CompletedFormState get _value => super._value as CompletedFormState;
+class __$$CompletedFormStateCopyWithImpl<$Res>
+    extends _$UserFormStateCopyWithImpl<$Res, _$CompletedFormState>
+    implements _$$CompletedFormStateCopyWith<$Res> {
+  __$$CompletedFormStateCopyWithImpl(
+      _$CompletedFormState _value, $Res Function(_$CompletedFormState) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -312,7 +344,8 @@ class _$CompletedFormState extends CompletedFormState {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is CompletedFormState);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CompletedFormState);
   }
 
   @override
@@ -327,6 +360,17 @@ class _$CompletedFormState extends CompletedFormState {
     required TResult Function() submitted,
   }) {
     return completed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? incomplete,
+    TResult? Function()? completed,
+    TResult? Function()? submitted,
+  }) {
+    return completed?.call();
   }
 
   @override
@@ -357,6 +401,17 @@ class _$CompletedFormState extends CompletedFormState {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EmptyFormState value)? empty,
+    TResult? Function(IncompleteFormState value)? incomplete,
+    TResult? Function(CompletedFormState value)? completed,
+    TResult? Function(SubmittedFormState value)? submitted,
+  }) {
+    return completed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EmptyFormState value)? empty,
     TResult Function(IncompleteFormState value)? incomplete,
@@ -377,22 +432,19 @@ abstract class CompletedFormState extends UserFormState {
 }
 
 /// @nodoc
-abstract class $SubmittedFormStateCopyWith<$Res> {
-  factory $SubmittedFormStateCopyWith(
-          SubmittedFormState value, $Res Function(SubmittedFormState) then) =
-      _$SubmittedFormStateCopyWithImpl<$Res>;
+abstract class _$$SubmittedFormStateCopyWith<$Res> {
+  factory _$$SubmittedFormStateCopyWith(_$SubmittedFormState value,
+          $Res Function(_$SubmittedFormState) then) =
+      __$$SubmittedFormStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SubmittedFormStateCopyWithImpl<$Res>
-    extends _$UserFormStateCopyWithImpl<$Res>
-    implements $SubmittedFormStateCopyWith<$Res> {
-  _$SubmittedFormStateCopyWithImpl(
-      SubmittedFormState _value, $Res Function(SubmittedFormState) _then)
-      : super(_value, (v) => _then(v as SubmittedFormState));
-
-  @override
-  SubmittedFormState get _value => super._value as SubmittedFormState;
+class __$$SubmittedFormStateCopyWithImpl<$Res>
+    extends _$UserFormStateCopyWithImpl<$Res, _$SubmittedFormState>
+    implements _$$SubmittedFormStateCopyWith<$Res> {
+  __$$SubmittedFormStateCopyWithImpl(
+      _$SubmittedFormState _value, $Res Function(_$SubmittedFormState) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -407,7 +459,8 @@ class _$SubmittedFormState extends SubmittedFormState {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SubmittedFormState);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SubmittedFormState);
   }
 
   @override
@@ -422,6 +475,17 @@ class _$SubmittedFormState extends SubmittedFormState {
     required TResult Function() submitted,
   }) {
     return submitted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? incomplete,
+    TResult? Function()? completed,
+    TResult? Function()? submitted,
+  }) {
+    return submitted?.call();
   }
 
   @override
@@ -452,6 +516,17 @@ class _$SubmittedFormState extends SubmittedFormState {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EmptyFormState value)? empty,
+    TResult? Function(IncompleteFormState value)? incomplete,
+    TResult? Function(CompletedFormState value)? completed,
+    TResult? Function(SubmittedFormState value)? submitted,
+  }) {
+    return submitted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EmptyFormState value)? empty,
     TResult Function(IncompleteFormState value)? incomplete,
@@ -472,22 +547,6 @@ abstract class SubmittedFormState extends UserFormState {
 }
 
 /// @nodoc
-class _$UserDataTearOff {
-  const _$UserDataTearOff();
-
-  _UserData call({String? firstName, String? lastName, String? email}) {
-    return _UserData(
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-    );
-  }
-}
-
-/// @nodoc
-const $UserData = _$UserDataTearOff();
-
-/// @nodoc
 mixin _$UserData {
   String? get firstName => throw _privateConstructorUsedError;
   String? get lastName => throw _privateConstructorUsedError;
@@ -501,18 +560,22 @@ mixin _$UserData {
 /// @nodoc
 abstract class $UserDataCopyWith<$Res> {
   factory $UserDataCopyWith(UserData value, $Res Function(UserData) then) =
-      _$UserDataCopyWithImpl<$Res>;
+      _$UserDataCopyWithImpl<$Res, UserData>;
+  @useResult
   $Res call({String? firstName, String? lastName, String? email});
 }
 
 /// @nodoc
-class _$UserDataCopyWithImpl<$Res> implements $UserDataCopyWith<$Res> {
+class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
+    implements $UserDataCopyWith<$Res> {
   _$UserDataCopyWithImpl(this._value, this._then);
 
-  final UserData _value;
   // ignore: unused_field
-  final $Res Function(UserData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? firstName = freezed,
@@ -520,55 +583,57 @@ class _$UserDataCopyWithImpl<$Res> implements $UserDataCopyWith<$Res> {
     Object? email = freezed,
   }) {
     return _then(_value.copyWith(
-      firstName: firstName == freezed
+      firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String?,
-      lastName: lastName == freezed
+      lastName: freezed == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$UserDataCopyWith<$Res> implements $UserDataCopyWith<$Res> {
-  factory _$UserDataCopyWith(_UserData value, $Res Function(_UserData) then) =
-      __$UserDataCopyWithImpl<$Res>;
+abstract class _$$_UserDataCopyWith<$Res> implements $UserDataCopyWith<$Res> {
+  factory _$$_UserDataCopyWith(
+          _$_UserData value, $Res Function(_$_UserData) then) =
+      __$$_UserDataCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? firstName, String? lastName, String? email});
 }
 
 /// @nodoc
-class __$UserDataCopyWithImpl<$Res> extends _$UserDataCopyWithImpl<$Res>
-    implements _$UserDataCopyWith<$Res> {
-  __$UserDataCopyWithImpl(_UserData _value, $Res Function(_UserData) _then)
-      : super(_value, (v) => _then(v as _UserData));
+class __$$_UserDataCopyWithImpl<$Res>
+    extends _$UserDataCopyWithImpl<$Res, _$_UserData>
+    implements _$$_UserDataCopyWith<$Res> {
+  __$$_UserDataCopyWithImpl(
+      _$_UserData _value, $Res Function(_$_UserData) _then)
+      : super(_value, _then);
 
-  @override
-  _UserData get _value => super._value as _UserData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? email = freezed,
   }) {
-    return _then(_UserData(
-      firstName: firstName == freezed
+    return _then(_$_UserData(
+      firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String?,
-      lastName: lastName == freezed
+      lastName: freezed == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -596,43 +661,40 @@ class _$_UserData extends _UserData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UserData &&
+        (other.runtimeType == runtimeType &&
+            other is _$_UserData &&
             (identical(other.firstName, firstName) ||
-                const DeepCollectionEquality()
-                    .equals(other.firstName, firstName)) &&
+                other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
-                const DeepCollectionEquality()
-                    .equals(other.lastName, lastName)) &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)));
+                other.lastName == lastName) &&
+            (identical(other.email, email) || other.email == email));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(firstName) ^
-      const DeepCollectionEquality().hash(lastName) ^
-      const DeepCollectionEquality().hash(email);
+  int get hashCode => Object.hash(runtimeType, firstName, lastName, email);
 
   @JsonKey(ignore: true)
   @override
-  _$UserDataCopyWith<_UserData> get copyWith =>
-      __$UserDataCopyWithImpl<_UserData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_UserDataCopyWith<_$_UserData> get copyWith =>
+      __$$_UserDataCopyWithImpl<_$_UserData>(this, _$identity);
 }
 
 abstract class _UserData extends UserData {
   const factory _UserData(
-      {String? firstName, String? lastName, String? email}) = _$_UserData;
+      {final String? firstName,
+      final String? lastName,
+      final String? email}) = _$_UserData;
   const _UserData._() : super._();
 
   @override
-  String? get firstName => throw _privateConstructorUsedError;
+  String? get firstName;
   @override
-  String? get lastName => throw _privateConstructorUsedError;
+  String? get lastName;
   @override
-  String? get email => throw _privateConstructorUsedError;
+  String? get email;
   @override
   @JsonKey(ignore: true)
-  _$UserDataCopyWith<_UserData> get copyWith =>
+  _$$_UserDataCopyWith<_$_UserData> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'router.dart';
 
@@ -10,27 +12,7 @@ part of 'router.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ConnectionPathTearOff {
-  const _$ConnectionPathTearOff();
-
-  HomePath home() {
-    return const HomePath();
-  }
-
-  SelectionPath selection() {
-    return const SelectionPath();
-  }
-
-  DetailsPath details() {
-    return const DetailsPath();
-  }
-}
-
-/// @nodoc
-const $ConnectionPath = _$ConnectionPathTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ConnectionPath {
@@ -39,6 +21,13 @@ mixin _$ConnectionPath {
     required TResult Function() home,
     required TResult Function() selection,
     required TResult Function() details,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? home,
+    TResult? Function()? selection,
+    TResult? Function()? details,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +46,13 @@ mixin _$ConnectionPath {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HomePath value)? home,
+    TResult? Function(SelectionPath value)? selection,
+    TResult? Function(DetailsPath value)? details,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomePath value)? home,
     TResult Function(SelectionPath value)? selection,
@@ -70,33 +66,33 @@ mixin _$ConnectionPath {
 abstract class $ConnectionPathCopyWith<$Res> {
   factory $ConnectionPathCopyWith(
           ConnectionPath value, $Res Function(ConnectionPath) then) =
-      _$ConnectionPathCopyWithImpl<$Res>;
+      _$ConnectionPathCopyWithImpl<$Res, ConnectionPath>;
 }
 
 /// @nodoc
-class _$ConnectionPathCopyWithImpl<$Res>
+class _$ConnectionPathCopyWithImpl<$Res, $Val extends ConnectionPath>
     implements $ConnectionPathCopyWith<$Res> {
   _$ConnectionPathCopyWithImpl(this._value, this._then);
 
-  final ConnectionPath _value;
   // ignore: unused_field
-  final $Res Function(ConnectionPath) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class $HomePathCopyWith<$Res> {
-  factory $HomePathCopyWith(HomePath value, $Res Function(HomePath) then) =
-      _$HomePathCopyWithImpl<$Res>;
+abstract class _$$HomePathCopyWith<$Res> {
+  factory _$$HomePathCopyWith(
+          _$HomePath value, $Res Function(_$HomePath) then) =
+      __$$HomePathCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$HomePathCopyWithImpl<$Res> extends _$ConnectionPathCopyWithImpl<$Res>
-    implements $HomePathCopyWith<$Res> {
-  _$HomePathCopyWithImpl(HomePath _value, $Res Function(HomePath) _then)
-      : super(_value, (v) => _then(v as HomePath));
-
-  @override
-  HomePath get _value => super._value as HomePath;
+class __$$HomePathCopyWithImpl<$Res>
+    extends _$ConnectionPathCopyWithImpl<$Res, _$HomePath>
+    implements _$$HomePathCopyWith<$Res> {
+  __$$HomePathCopyWithImpl(_$HomePath _value, $Res Function(_$HomePath) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -111,7 +107,8 @@ class _$HomePath implements HomePath {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is HomePath);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$HomePath);
   }
 
   @override
@@ -125,6 +122,16 @@ class _$HomePath implements HomePath {
     required TResult Function() details,
   }) {
     return home();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? home,
+    TResult? Function()? selection,
+    TResult? Function()? details,
+  }) {
+    return home?.call();
   }
 
   @override
@@ -153,6 +160,16 @@ class _$HomePath implements HomePath {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HomePath value)? home,
+    TResult? Function(SelectionPath value)? selection,
+    TResult? Function(DetailsPath value)? details,
+  }) {
+    return home?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomePath value)? home,
     TResult Function(SelectionPath value)? selection,
@@ -171,22 +188,19 @@ abstract class HomePath implements ConnectionPath {
 }
 
 /// @nodoc
-abstract class $SelectionPathCopyWith<$Res> {
-  factory $SelectionPathCopyWith(
-          SelectionPath value, $Res Function(SelectionPath) then) =
-      _$SelectionPathCopyWithImpl<$Res>;
+abstract class _$$SelectionPathCopyWith<$Res> {
+  factory _$$SelectionPathCopyWith(
+          _$SelectionPath value, $Res Function(_$SelectionPath) then) =
+      __$$SelectionPathCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SelectionPathCopyWithImpl<$Res>
-    extends _$ConnectionPathCopyWithImpl<$Res>
-    implements $SelectionPathCopyWith<$Res> {
-  _$SelectionPathCopyWithImpl(
-      SelectionPath _value, $Res Function(SelectionPath) _then)
-      : super(_value, (v) => _then(v as SelectionPath));
-
-  @override
-  SelectionPath get _value => super._value as SelectionPath;
+class __$$SelectionPathCopyWithImpl<$Res>
+    extends _$ConnectionPathCopyWithImpl<$Res, _$SelectionPath>
+    implements _$$SelectionPathCopyWith<$Res> {
+  __$$SelectionPathCopyWithImpl(
+      _$SelectionPath _value, $Res Function(_$SelectionPath) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -201,7 +215,8 @@ class _$SelectionPath implements SelectionPath {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SelectionPath);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SelectionPath);
   }
 
   @override
@@ -215,6 +230,16 @@ class _$SelectionPath implements SelectionPath {
     required TResult Function() details,
   }) {
     return selection();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? home,
+    TResult? Function()? selection,
+    TResult? Function()? details,
+  }) {
+    return selection?.call();
   }
 
   @override
@@ -243,6 +268,16 @@ class _$SelectionPath implements SelectionPath {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HomePath value)? home,
+    TResult? Function(SelectionPath value)? selection,
+    TResult? Function(DetailsPath value)? details,
+  }) {
+    return selection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomePath value)? home,
     TResult Function(SelectionPath value)? selection,
@@ -261,21 +296,19 @@ abstract class SelectionPath implements ConnectionPath {
 }
 
 /// @nodoc
-abstract class $DetailsPathCopyWith<$Res> {
-  factory $DetailsPathCopyWith(
-          DetailsPath value, $Res Function(DetailsPath) then) =
-      _$DetailsPathCopyWithImpl<$Res>;
+abstract class _$$DetailsPathCopyWith<$Res> {
+  factory _$$DetailsPathCopyWith(
+          _$DetailsPath value, $Res Function(_$DetailsPath) then) =
+      __$$DetailsPathCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$DetailsPathCopyWithImpl<$Res> extends _$ConnectionPathCopyWithImpl<$Res>
-    implements $DetailsPathCopyWith<$Res> {
-  _$DetailsPathCopyWithImpl(
-      DetailsPath _value, $Res Function(DetailsPath) _then)
-      : super(_value, (v) => _then(v as DetailsPath));
-
-  @override
-  DetailsPath get _value => super._value as DetailsPath;
+class __$$DetailsPathCopyWithImpl<$Res>
+    extends _$ConnectionPathCopyWithImpl<$Res, _$DetailsPath>
+    implements _$$DetailsPathCopyWith<$Res> {
+  __$$DetailsPathCopyWithImpl(
+      _$DetailsPath _value, $Res Function(_$DetailsPath) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -290,7 +323,8 @@ class _$DetailsPath implements DetailsPath {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is DetailsPath);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DetailsPath);
   }
 
   @override
@@ -304,6 +338,16 @@ class _$DetailsPath implements DetailsPath {
     required TResult Function() details,
   }) {
     return details();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? home,
+    TResult? Function()? selection,
+    TResult? Function()? details,
+  }) {
+    return details?.call();
   }
 
   @override
@@ -328,6 +372,16 @@ class _$DetailsPath implements DetailsPath {
     required TResult Function(DetailsPath value) details,
   }) {
     return details(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HomePath value)? home,
+    TResult? Function(SelectionPath value)? selection,
+    TResult? Function(DetailsPath value)? details,
+  }) {
+    return details?.call(this);
   }
 
   @override
