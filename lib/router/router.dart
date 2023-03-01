@@ -1,29 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:riverpod_testbed/router/connection.dart';
+import 'package:riverpod_testbed/router/router_path.dart';
 
 import 'main.dart';
 
-part 'router.freezed.dart';
+/// Defines [MaterialPage] for [HomePage]
+final _homePage = MaterialPage<RouterPath>(key: ValueKey('/'), child: HomePage());
 
-@freezed
-abstract class ConnectionPath with _$ConnectionPath {
-  const factory ConnectionPath.home() = HomePath;
-  const factory ConnectionPath.selection() = SelectionPath;
-  const factory ConnectionPath.details() = DetailsPath;
-}
+/// Defines [MaterialPage] for [ConnectionsPage]
+final _selectionPage = MaterialPage<RouterPath>(key: ValueKey('/connections'), child: ConnectionsPage());
 
-class ConnectionRouterDelegate extends RouterDelegate<ConnectionPath>
-    with ChangeNotifier, PopNavigatorRouterDelegateMixin<ConnectionPath> {
+
+/// Returns [MaterialPage] carying [ConnectionDetailsPage] with required [Connection] parameter
+/// Used by [ConnectionRouterDelegate.goDetails]
+MaterialPage<RouterPath> _detailsPage(Connection connection) =>
+    MaterialPage<RouterPath>(key: ValueKey('/connectionDetails'), child: ConnectionDetailsPage(connection:connection),);
+
+final routerDelegateProvider =
+    Provider<ConnectionRouterDelegate>((ref) => ConnectionRouterDelegate(ref));
+
+final routeInformationParser =
+    Provider<ConnectionRouteInformationParser>((_) => ConnectionRouteInformationParser());
+
+final backstackStateProvider = StateProvider<List<MaterialPage<RouterPath>>>((_) => [_homePage]);
+
+final globalNavigatorKeyProvider =
+    Provider<GlobalKey<NavigatorState>>((_) => GlobalKey<NavigatorState>());
+
+class ConnectionRouterDelegate extends RouterDelegate<RouterPath>
+    with ChangeNotifier, PopNavigatorRouterDelegateMixin<RouterPath> {
   final Ref ref;
 
-  final List<MaterialPage> _stack = [_homePage];
-
-  static final _homePage = MaterialPage(key: ValueKey('/'), child: HomePage());
-  static final _selectionPage =
-      MaterialPage(key: ValueKey('/connections'), child: ConnectionsPage());
-  static final _detailsPage = MaterialPage(
-      key: ValueKey('/connectionDetails'), child: ConnectionDetailsPage());
+  List<MaterialPage> backstack = [_homePage];
 
   ConnectionRouterDelegate(this.ref);
 
@@ -31,59 +40,71 @@ class ConnectionRouterDelegate extends RouterDelegate<ConnectionPath>
   Widget build(BuildContext context) {
     return Navigator(
         key: navigatorKey,
-        pages: _stack,
+        pages: backstack,
         onPopPage: (route, result) {
-          final isSuccess = route.didPop(result);
-          _stack.removeLast();
-          return isSuccess;
+          route.didPop(result);
+          return pop();
         });
   }
 
   @override
-  GlobalKey<NavigatorState>? get navigatorKey => GlobalKey<NavigatorState>();
+  GlobalKey<NavigatorState>? get navigatorKey => ref.read(globalNavigatorKeyProvider);
 
   @override
-  Future<void> setNewRoutePath(ConnectionPath path) async {
+  Future<void> setNewRoutePath(RouterPath path) async {
     path.when(
       home: () => goHome(),
       selection: () => goSelection(),
-      details: () => goDetails(),
+      details: (connection) => goDetails(connection),
     );
+    
   }
 
+  void _setStack(List<MaterialPage> stack) {
+    if (stack != backstack) {
+      backstack = stack;
+      // important to let Navigator know we are modifying a stack 
+      // it will cause build() to be called
+      notifyListeners();
+    }
+  }
+
+  /// Call to navigate to [HomePage]
   void goHome() {
-    if (!_stack.contains(_homePage)) {
-      _stack.clear();
-      _stack.add(_homePage);
-      notifyListeners();
-    }
+    _setStack([_homePage]);
   }
 
+  /// Call to navigate to [ConnectionsPage]
   void goSelection() {
-    if (!_stack.contains(_selectionPage)) {
-      _stack.add(_selectionPage);
-      notifyListeners();
+    if (!backstack.contains(_selectionPage)) {
+      _setStack([...backstack, _selectionPage]);
     }
   }
 
-  void goDetails() {
-    if (!_stack.contains(_detailsPage)) {
-      _stack.add(_detailsPage);
-      notifyListeners();
+  /// Call to navigate to [DetailsPage]
+  void goDetails(Connection connection) {
+    if (!backstack.contains(_detailsPage)) {
+      _setStack([...backstack, _detailsPage(connection)]);
     }
+  }
+
+  /// Pops a stack
+  bool pop() {
+    if (backstack != [_homePage]) {
+      _setStack([...backstack..removeLast()]);
+    }
+    return backstack.length == 1;
   }
 }
 
-class ConnectionRouteInformationParser
-    extends RouteInformationParser<ConnectionPath> {
+class ConnectionRouteInformationParser extends RouteInformationParser<RouterPath> {
   @override
-  Future<ConnectionPath> parseRouteInformation(
-      RouteInformation routeInformation) async {
-    final uri = Uri.parse(routeInformation.location ?? '');
-
-    if (uri.pathSegments.length == 0) return HomePath();
+  Future<RouterPath> parseRouteInformation(RouteInformation routeInformation) async {
+    debugPrint('RouteInformationParser.parseRouteInformation()');
+    final uri = Uri.parse(routeInformation.location ?? '/');
+    if (uri.path == '/') return HomePath();
     if (uri.pathSegments.last == 'connections') return SelectionPath();
-    if (uri.pathSegments.last == 'connectionDetails') return DetailsPath();
+    if (uri.pathSegments.last == 'connectionDetails') return ConnectionPath(routeInformation.state as Connection);
 
     return HomePath();
   }

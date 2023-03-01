@@ -27,7 +27,7 @@ run  `flutter run lib/state/main.dart`
 Async Task
 ---
 
-Simple async task
+Simple async task. It waits 5 seconds then it returns String 'Result'
 
 run  `flutter run lib/async_task/main.dart`
 
@@ -63,7 +63,12 @@ run  `flutter run lib/form/main.dart`
 Router
 --- 
 
-Navigator 2 router based on Riverpod
+Navigator 2 router based on Riverpod. Navigation compromises of three levels:
+
+`Home` -> `Selection` -> `Details(Connection)`
+
+Last level passes argument `Connection`. Argument is passed to MaterialPage.
+
 
 run  `flutter run lib/router/main.dart`
 

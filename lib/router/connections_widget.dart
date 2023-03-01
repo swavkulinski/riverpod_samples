@@ -7,23 +7,20 @@ import 'router.dart';
 class ConnectionsWidget extends ConsumerWidget {
   @override
   Widget build(context, ref) {
-    final selectedConnection = ref.watch(selectedConnectionProvider.notifier);
     return Material(
       child: Container(
         child: Column(
-            children: ref.watch(connectionsProvider.notifier)
+            children: ref
+                .watch(connectionsProvider.notifier)
                 .state
                 .map(
-                  (e) => Ink(
+                  (connection) => Ink(
                     child: GestureDetector(
                       onTap: () {
-                        selectedConnection.state = e;
-                        (Router.of(context).routerDelegate
-                                as ConnectionRouterDelegate)
-                            .goDetails();
+                        ref.watch(routerDelegateProvider).goDetails(connection);
                       },
                       child: ListTile(
-                        title: Text('${e.from} to ${e.to}'),
+                        title: Text('${connection.from} to ${connection.to}'),
                         trailing: Icon(Icons.arrow_forward_ios),
                       ),
                     ),

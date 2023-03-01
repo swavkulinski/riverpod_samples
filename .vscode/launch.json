@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "router",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/router/main.dart"
+        },
+        {
             "name": "full_flow",
             "request": "launch",
             "type": "dart",

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_testbed/router/connection.dart';
 import 'package:riverpod_testbed/router/home.dart';
-import 'package:riverpod_testbed/router/main.provider.dart';
 import 'connection_details.dart';
-import 'connections.dart';
+import 'connections_widget.dart';
 import 'router.dart';
 
 void main() {
@@ -36,10 +36,16 @@ class ConnectionsPage extends StatelessWidget {
 }
 
 class ConnectionDetailsPage extends StatelessWidget {
+  final Connection connection;
+
+  ConnectionDetailsPage({super.key, required this.connection});
+
   @override
   Widget build(context) => _ScaffoldWidget(
         currentIndex: 1,
-        child: ConnectionDetailsWidget(),
+        child: ConnectionDetailsWidget(
+          connection: connection,
+        ),
       );
 }
 
@@ -68,12 +74,15 @@ class _ScaffoldWidget extends ConsumerWidget {
           BottomNavigationBarItem(icon: Icon(Icons.train), label: 'Connections')
         ],
         onTap: (index) {
-          final delegate =
-              (Router.of(context).routerDelegate as ConnectionRouterDelegate);
-          if (index == 1)
-            delegate.goSelection();
-          else
-            delegate.goHome();
+          switch (index) {
+            case 1:
+              ref.watch(routerDelegateProvider).goSelection();
+              break;
+            default:
+              ref.watch(routerDelegateProvider).goHome();
+              break;
+          }
+          ;
         },
       ),
     );

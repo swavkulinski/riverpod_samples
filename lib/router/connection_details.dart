@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_testbed/router/main.provider.dart';
+import 'package:riverpod_testbed/router/connection.dart';
 
-class ConnectionDetailsWidget extends ConsumerWidget {
+class ConnectionDetailsWidget extends StatelessWidget {
+  final Connection connection;
+
+  ConnectionDetailsWidget({super.key, required this.connection});
+
   @override
-  Widget build(context, ref) {
-    final selectedConnection = ref.watch(selectedConnectionProvider);
-
-    if (selectedConnection == null) return Container();
-    return Container(
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-                'From: ${selectedConnection.from} To: ${selectedConnection.to}'),
-            Text('Departure: ${selectedConnection.departure.toLocal()}')
-          ],
+  Widget build(context) => Container(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('From: ${connection.from} To: ${connection.to}'),
+              Text('Departure: ${connection.departure.toLocal()}')
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
 }
