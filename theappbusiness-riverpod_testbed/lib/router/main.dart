@@ -14,9 +14,9 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(context, ref) {
     return MaterialApp.router(
-      routeInformationParser: ref(routeInformationParser),
-      routerDelegate: ref(routerDelegateProvider),
-    );
+        routeInformationParser: ref(routeInformationParser),
+        routerDelegate: ref(routerDelegateProvider),);
+        
   }
 }
 
@@ -43,7 +43,7 @@ class ConnectionDetailsPage extends StatelessWidget {
       );
 }
 
-class _ScaffoldWidget extends ConsumerWidget {
+class _ScaffoldWidget extends StatelessWidget {
   final int currentIndex;
   final Widget child;
 
@@ -53,7 +53,7 @@ class _ScaffoldWidget extends ConsumerWidget {
     required this.child,
   }) : super(key: key);
 
-  Widget build(BuildContext context, ScopedReader ref) {
+  Widget build(context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Navigation Lab'),
