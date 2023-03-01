@@ -25,7 +25,7 @@ class MyHomePage extends ConsumerWidget {
   }) : super(key: key);
   @override
   Widget build(context, ref) {
-    final controller = ref.watch(stateControllerProvider);
+    final notifier = ref.watch(notifierProvider.notifier);
     return Scaffold(
         appBar: AppBar(
           title: Text('Lab'),
@@ -44,22 +44,22 @@ class MyHomePage extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.all(1.0),
               child: FloatingActionButton(
-                  child: Text('+a'), onPressed: controller.addA),
+                  child: Text('+a'), onPressed: notifier.addA),
             ),
             Padding(
               padding: const EdgeInsets.all(1.0),
               child: FloatingActionButton(
-                  child: Text('+b'), onPressed: controller.addB),
+                  child: Text('+b'), onPressed: notifier.addB),
             ),
             Padding(
               padding: const EdgeInsets.all(1.0),
               child: FloatingActionButton(
-                  child: Text('-a'), onPressed: controller.removeA),
+                  child: Text('-a'), onPressed: notifier.removeA),
             ),
             Padding(
               padding: const EdgeInsets.all(1.0),
               child: FloatingActionButton(
-                  child: Text('-b'), onPressed: controller.removeB),
+                  child: Text('-b'), onPressed: notifier.removeB),
             ),
           ],
         ));
@@ -69,7 +69,7 @@ class MyHomePage extends ConsumerWidget {
 class _Text extends ConsumerWidget {
   @override
   Widget build(context, ref) {
-    final state = ref.watch(stateProvider);
+    final state = ref.watch(notifierProvider);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
