@@ -5,7 +5,7 @@ import 'package:riverpod_testbed/router/main.provider.dart';
 class ConnectionDetailsWidget extends ConsumerWidget {
   @override
   Widget build(context, ref) {
-    final selectedConnection = ref(selectedConnectionProvider).state;
+    final selectedConnection = ref.watch(selectedConnectionProvider);
 
     if (selectedConnection == null) return Container();
     return Container(

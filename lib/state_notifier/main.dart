@@ -25,7 +25,7 @@ class MyHomePage extends ConsumerWidget {
   }) : super(key: key);
   @override
   Widget build(context, ref) {
-    final controller = ref(stateControllerProvider);
+    final controller = ref.watch(stateControllerProvider);
     return Scaffold(
         appBar: AppBar(
           title: Text('Lab'),
@@ -69,7 +69,7 @@ class MyHomePage extends ConsumerWidget {
 class _Text extends ConsumerWidget {
   @override
   Widget build(context, ref) {
-    final state = ref(stateProvider);
+    final state = ref.watch(stateProvider);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [

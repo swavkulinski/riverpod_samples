@@ -3,7 +3,7 @@ import 'main.provider.dart';
 import 'view_state.dart';
 
 class ViewModel extends StateNotifier<ViewState> {
-  final ProviderReference ref;
+  final Ref ref;
   ViewModel(this.ref) : super(Empty());
 
   /// Invokes use case and maps the result to ViewState

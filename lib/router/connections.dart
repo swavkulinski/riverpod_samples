@@ -7,11 +7,11 @@ import 'router.dart';
 class ConnectionsWidget extends ConsumerWidget {
   @override
   Widget build(context, ref) {
-    final selectedConnection = ref(selectedConnectionProvider);
+    final selectedConnection = ref.watch(selectedConnectionProvider.notifier);
     return Material(
       child: Container(
         child: Column(
-            children: ref(connectionsProvider)
+            children: ref.watch(connectionsProvider.notifier)
                 .state
                 .map(
                   (e) => Ink(

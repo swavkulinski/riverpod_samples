@@ -14,8 +14,8 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(context, ref) {
     return MaterialApp.router(
-      routeInformationParser: ref(routeInformationParser),
-      routerDelegate: ref(routerDelegateProvider),
+      routeInformationParser: ref.watch(routeInformationParser),
+      routerDelegate: ref.watch(routerDelegateProvider),
     );
   }
 }
@@ -53,7 +53,7 @@ class _ScaffoldWidget extends ConsumerWidget {
     required this.child,
   }) : super(key: key);
 
-  Widget build(BuildContext context, ScopedReader ref) {
+  Widget build(BuildContext context, ref) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Navigation Lab'),

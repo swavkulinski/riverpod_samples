@@ -5,29 +5,29 @@ import 'state.dart';
 final stateProvider = StateProvider<AppState>((_) => AppState(a: 'a', b: 'b'));
 
 final addAProvider = Provider<Reduce>((ref) {
-  final state = ref.watch(stateProvider);
+  final notifierA = ref.watch(stateProvider.notifier);
   return () {
-    state.state = addA(state.state);
+    notifierA.state = addA(notifierA.state);
   };
 });
 
 final addBProvider = Provider<Reduce>((ref) {
-  final state = ref.watch(stateProvider);
+  final notifierB = ref.watch(stateProvider.notifier);
   return () {
-    state.state = addB(state.state);
+    notifierB.state = addB(notifierB.state);
   };
 });
 
 final removeAProvider = Provider<Reduce>((ref) {
-  final state = ref.watch(stateProvider);
+  final notifierA = ref.watch(stateProvider.notifier);
   return () {
-    state.state = removeA(state.state);
+    notifierA.state = removeA(notifierA.state);
   };
 });
 
 final removeBProvider = Provider<Reduce>((ref) {
-  final state = ref.watch(stateProvider);
+  final notifierB = ref.watch(stateProvider.notifier);
   return () {
-    state.state = removeB(state.state);
+    notifierB.state = removeB(notifierB.state);
   };
 });

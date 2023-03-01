@@ -15,7 +15,7 @@ abstract class ConnectionPath with _$ConnectionPath {
 
 class ConnectionRouterDelegate extends RouterDelegate<ConnectionPath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<ConnectionPath> {
-  final ProviderReference ref;
+  final Ref ref;
 
   final List<MaterialPage> _stack = [_homePage];
 

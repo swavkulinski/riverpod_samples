@@ -26,7 +26,7 @@ class MyHomePage extends ConsumerWidget {
   }) : super(key: key);
   @override
   Widget build(context, ref) {
-    final viewModel = ref(viewStateProvider);
+    final viewModel = ref.watch(viewStateProvider.notifier);
     return Scaffold(
         appBar: AppBar(
           title: Text('Lab'),

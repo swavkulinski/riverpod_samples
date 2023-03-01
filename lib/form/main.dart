@@ -26,14 +26,14 @@ class MyHomePage extends ConsumerWidget {
   }) : super(key: key);
   @override
   Widget build(context, ref) {
-    final userData = ref(userDataStateNotifierProvider);
-    final notifier = ref(userDataStateNotifierProvider.notifier);
+    final userData = ref.watch(userDataStateNotifierProvider);
+    final notifier = ref.watch(userDataStateNotifierProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lab'),
       ),
       body: Form(
-        key: ref(formKeyProvider),
+        key: ref.watch(formKeyProvider),
         child: Column(
           children: <Widget>[
             TextForm.name(

@@ -44,7 +44,7 @@ class MyHomePage extends ConsumerWidget {
 class _Text extends ConsumerWidget {
   @override
   Widget build(context, ref) {
-    final a = ref(titleProvider);
+    final a = ref.watch(titleProvider);
     return Text(
   
       'hashCode ${a.hashCode} ${a.a}',

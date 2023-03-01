@@ -33,10 +33,10 @@ class _EmailForm extends TextForm {
   _EmailForm({Key? key, required Function(String) onChanged}) : super(key: key, onChanged: onChanged);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) => TextFormField(
+  Widget build(BuildContext context, WidgetRef ref) => TextFormField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         keyboardType: TextInputType.emailAddress,
-        validator: watch(_emailValidatorProvider),
+        validator: ref.watch(_emailValidatorProvider),
         onChanged: onChanged,
       );
 }
@@ -46,10 +46,10 @@ class _NameForm extends TextForm{
   _NameForm({Key? key, required this.onChanged}) : super(key: key, onChanged: onChanged);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) => TextFormField(
+  Widget build(BuildContext context, WidgetRef ref) => TextFormField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         keyboardType: TextInputType.name,
-        validator: watch(_nameValidatorProvider),
+        validator: ref.watch(_nameValidatorProvider),
         onChanged: onChanged,
       );
 }

@@ -25,10 +25,10 @@ class MyHomePage extends ConsumerWidget {
   }) : super(key: key);
   @override
   Widget build(context, ref) {
-    final addA = ref(addAProvider);
-    final addB = ref(addBProvider);
-    final removeA = ref(removeAProvider);
-    final removeB = ref(removeBProvider);
+    final addA = ref.watch(addAProvider);
+    final addB = ref.watch(addBProvider);
+    final removeA = ref.watch(removeAProvider);
+    final removeB = ref.watch(removeBProvider);
     return Scaffold(
         appBar: AppBar(
           title: Text('Lab'),
@@ -68,7 +68,7 @@ class MyHomePage extends ConsumerWidget {
 class _Text extends ConsumerWidget {
   @override
   Widget build(context, ref) {
-    final a = ref(stateProvider);
+    final a = ref.watch(stateProvider);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -77,7 +77,7 @@ class _Text extends ConsumerWidget {
         ),
         Divider(),
         Text(
-          'a.a ${a.state.a}',
+          'a $a',
         ),
         Divider(),
         Text(
